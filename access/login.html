@@ -29,10 +29,38 @@
 </head>
 <body>
 	
+	
+	
+<!--Login para el acceso temporal al control de administrador y de usuario, próximamente se modificará para su uso con bases de datos -->	
+	
+<script  language="JavaScript"> 
+function go(){
+if (document.form.pass.value=='admin' && document.form.username.value=='admin'){ 
+         	
+window.location.href = "../control/index.html";
+	alert("PROFESOR.");    
+
+    } 
+else if (document.form.pass.value=='user' && document.form.username.value=='user'){ 
+	window.location.href = "../control/alumno.html";
+ alert("USUARIO.");          	
+
+
+    } 
+    else{ 
+         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+    } 
+} 
+</script>	
+	
+	
+	
+	
+	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form name="form" class="login100-form validate-form">
 					<span class="login100-form-title p-b-34">
 						INICIO DE SESIÓN
 					</span>
@@ -47,7 +75,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" onclick="go()">
 							Inciar sesión
 						</button>
 					</div>
@@ -73,7 +101,6 @@
 	
 
 	<div id="dropDownSelect1"></div>
-	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -96,6 +123,7 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	
 
 </body>
 </html>
