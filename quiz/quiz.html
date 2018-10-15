@@ -11,7 +11,7 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js" integrity="sha256-VAvG3sHdS5LqTT+5A/aeq/bZGa/Uj04xKxY8KM/w9EE=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script>
-    var quiztitle = "Bobby's Sample Quiz";
+    var quiztitle = "Cuestionario";
     /**
     * Set the information about your questions here. The correct answer string needs to match
     * the correct choice exactly, as it does string matching. (case sensitive)
@@ -122,7 +122,7 @@ quiz = shuffle(quiz);
 			submt = true;
 			$('#explanation').empty();
 			$('#question').text(quiz[currentquestion]['question']);
-			$('#pager').text('Question ' + Number(currentquestion + 1) + ' of ' + quiz.length);
+			$('#pager').text('Pregunta ' + Number(currentquestion + 1) + ' de ' + quiz.length);
 			if(quiz[currentquestion].hasOwnProperty('image') && quiz[currentquestion]['image'] != ""){
 				if($('#question-image').length == 0){
 					$(document.createElement('img')).addClass('question-image').attr('id', 'question-image').attr('src', quiz[currentquestion]['image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
@@ -164,27 +164,27 @@ quiz = shuffle(quiz);
         function processQuestion(choice){
             if(quiz[currentquestion]['choices'][choice] == quiz[currentquestion]['correct']){
 				$('.choice').eq(choice).addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'});
-				$('#explanation').html('<span class="correct">CORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
+				$('#explanation').html('<span class="correct">CORRECTO!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
 				score++;
 			} else {
                 $('.choice').eq(choice).addClass('btn-danger').css({'font-weight':'bold', 'border-color':'#f93939', 'color':'#fff'});
-                $('#explanation').html('<span class="incorrect">INCORRECT!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
+                $('#explanation').html('<span class="incorrect">INCORRECTO!</span> ' + htmlEncode(quiz[currentquestion]['explanation']));
             }
             currentquestion++;
 			if(currentquestion == quiz.length){
-				$('#submitbutton').html('GET QUIZ RESULTS').removeClass('btn-success').addClass('btn-info').css({'border-color':'#3a87ad', 'color':'#fff'}).on('click', function(){
-					$(this).text('GET QUIZ RESULTS').on('click');
+				$('#submitbutton').html('OBTENER RESULTADOS').removeClass('btn-success').addClass('btn-info').css({'border-color':'#3a87ad', 'color':'#fff'}).on('click', function(){
+					$(this).text('OBTENER RESULTADOS').on('click');
 					endQuiz();
 				})
 				
 			} else if (currentquestion < quiz.length){
-				$('#submitbutton').html('NEXT QUESTION &raquo;').removeClass('btn-success').addClass('btn-warning').css({'font-weight':'bold', 'border-color':'#faa732', 'color':'#fff'}).on('click', function(){
-					$(this).text('- CHECK ANSWER -').removeClass('btn-warning').addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'}).on('click');
+				$('#submitbutton').html('SIGUIENTE PREGUNTA &raquo;').removeClass('btn-success').addClass('btn-warning').css({'font-weight':'bold', 'border-color':'#faa732', 'color':'#fff'}).on('click', function(){
+					$(this).text('- COMPROBAR RESPUESTA -').removeClass('btn-warning').addClass('btn-success').css({'font-weight':'bold', 'border-color':'#51a351', 'color':'#fff'}).on('click');
 					nextQuestion();
 				})
 			} else {
-				//	$('#submitbutton').html('NEXT QUESTION &raquo;').on('click', function(){
-				//		$(this).text('- CHECK ANSWER -').css({'color':'inherit'}).on('click');
+				//	$('#submitbutton').html('SIGUIENTE PREGUNTA &raquo;').on('click', function(){
+				//		$(this).text('- COMPROBAR RESPUESTA -').css({'color':'inherit'}).on('click');
 				//	})
 			}
 			
@@ -217,7 +217,7 @@ quiz = shuffle(quiz);
 			$('#choice-block').empty();
 			$('#submitbutton').remove();
 			$('.rsform-block-submit').addClass('show');
-			$('#question').text("You got " + score + " out of " + quiz.length + " correct.");
+			$('#question').text("Obtuviste un " + score + " sobre " + quiz.length + ".");
 			$(document.createElement('h4')).addClass('score').text(Math.round(score/quiz.length * 100) + '%').insertAfter('#question');			
 		}
         /**
@@ -251,7 +251,7 @@ quiz = shuffle(quiz);
 				addChoices(quiz[0]['choices']);
 				
 				//add submit button
-				$(document.createElement('div')).addClass('btn-success choice-box').attr('id', 'submitbutton').text('- CHECK ANSWER -').css({'font-weight':'bold', 'color':'#fff','padding':'30px 0', 'border-radius':'10px'}).appendTo('#frame');
+				$(document.createElement('div')).addClass('btn-success choice-box').attr('id', 'submitbutton').text('- COMPROBAR RESPUESTA -').css({'font-weight':'bold', 'color':'#fff','padding':'30px 0', 'border-radius':'10px'}).appendTo('#frame');
 				
 				setupButtons();
 			}
@@ -331,13 +331,10 @@ quiz = shuffle(quiz);
 <hr>
 <div class="form-group rsform-block rsform-block-placecontent">
 	<label class="col-sm-3 control-label formControlLabel" data-toggle="tooltip" title="" for="placecontent"></label>
-	<div class="col-sm-6 formControls">
-		<textarea cols="50" rows="5" name="form[placecontent]" id="placecontent" readonly="" class="rsform-text-box form-control rsform-text-box"></textarea>			
-	</div>
 </div>	
 	
 <div class="col-sm-6 formControls rsform-block-submit">
-	<button type="submit" name="form[submit]" id="submit" onclick="copyText()" class="rsform-submit-button  btn btn-primary">Submit Quiz</button>			
+	<center><a href="../index.html">Volver a la pantalla inicial</a></center>
 </div>	
 </body>
 </html>
