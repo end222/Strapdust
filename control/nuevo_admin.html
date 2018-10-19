@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Usuarios</title>
+    <title>Añadir administradores</title>
 	  
 	  <link rel="icon" type="image/png" href="../favicon.ico"/>
 
@@ -27,7 +27,7 @@
 
   </head>
 
-   <body id="page-top">
+  <body id="page-top">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -71,7 +71,6 @@
 
     </nav>
 
-
     <div id="wrapper">
 
        <!-- Sidebar -->
@@ -82,7 +81,7 @@
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
 			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
-			  <a class="dropdown-item active" href="usuarios.html">Usuarios</a>
+            <a class="dropdown-item active" href="usuarios.html">Usuarios</a>
 
             <a class="dropdown-item" href="grupos.html">Grupos</a>
 
@@ -101,118 +100,33 @@
             <li class="breadcrumb-item">
               <a href="#">Configuración</a>
             </li>
-            <li class="breadcrumb-item active">Usuarios</li>
+            <li class="breadcrumb-item">
+				<a href="usuarios.html">Usuarios</a>
+			  </li>
+			<li class="breadcrumb-item active">Añadir nuevos administradores</li>
           </ol>
-			<div>
-			<a class="btn btn-primary btn-block" href="nuevo_usuario.html"><strong>Añadir nuevos usuarios</strong></a>
-			<a class="btn btn-secondary btn-block" href="borrar_usuarios.html"><strong>Eliminar usuarios</strong></a>
-				
-			
-			<a class="btn btn-warning btn-block" href="nuevo_admin.html">Añadir nuevos administradores</a>
-			<a class="btn btn-danger btn-block" href="borrar_admin.html">Eliminar administradores</a>
-			</div>
-			
+
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fas fa-table"></i>
-              Tabla de usuarios y grupos</div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-					  <th>NIA</th>
-                      <th>Nombre</th>
-                      <th>Grupo</th>					  
-                      <th>Fecha de registro</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-					  <th>NIA</th>
-                      <th>Nombre</th>
-					  <th>Grupo</th>
-                      <th>Fecha de registro</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-					  <td>123443</td>
-					  <td>Tiger Nixon</td>
-					  <td>grupo1</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-					  <td>543443</td>
-                      <td>Garrett Winters</td>
-					  <td>grupo6</td>
-                      <td>2011/07/25</td>
-                    </tr>
-                    <tr>
-					  <td>123763</td>
-                      <td>Ashton Cox</td>
-					  <td>grupo1</td>
-                      <td>2009/01/12</td>
-                    </tr>
-                    <tr>
-					  <td>125433</td>
-                      <td>Cedric Kelly</td>
-					  <td>grupo3</td>
-                      <td>2012/03/29</td>
-                    </tr>
-                    <tr>
-					  <td>877443</td>
-                      <td>Airi Satou</td>
-					  <td>grupo6</td>
-                      <td>2008/11/28</td>
-                    </tr>
-                    <tr>
-					  <td>123453</td>
-                      <td>Brielle Williamson</td>
-					  <td>---</td>
-                      <td>2012/12/02</td>
-                    </tr>
-                    <tr>
-					  <td>663443</td>
-                      <td>Herrod Chandler</td>
-					  <td>grupo1</td>
-                      <td>2012/08/06</td>
-                    </tr>
-                    <tr>
-					  <td>123888</td>
-                      <td>Rhona Davidson</td>
-					  <td>grupo6</td>
-                      <td>2010/10/14</td>
-                    </tr>
-                    <tr>
-					  <td>144343</td>
-                      <td>Colleen Hurst</td>
-					  <td>grupo3</td>
-                      <td>2009/09/15</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Will Smitd</td>
-					  <td>---</td>
-                      <td>2013/09/15</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Homer Simpson</td>
-					  <td>---</td>
-                      <td>2011/10/11</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Pedro Picapiedra</td>
-					  <td>---</td>
-                      <td>2008/12/11</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <i class="fas fa-user"></i>
+              Añadir nuevos administradores</div>
+			<p></p>			  
+		    <div class="form-group">
+                 <strong>Introduzca nuevos administradores*</strong>
+                <textarea class="form-control" rows="3" ></textarea>
+				  </div>
+			  <button type="submit" class="btn btn-block btn-lg btn-info">Guardar cambios</button>
+			  <p></p>
+		    <div class="form-group">
+				  <p class="card-footer text-muted">*Debe introducirse un nuevo usuario en cada linea siguiendo el siguiente formato:<br> PID Apellidos Nombre<br> PID2 Apellidos2 Nombre2<br> ...</p>
+				  <p class=" text-muted">Ejemplo:</p>
+			  <textarea class="form-control" placeholder="jamarro Martinez Fernandez Javier" disabled="" rows="3" ></textarea>
               </div>
-            </div>
+			  
+			  
+			  
+            
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
@@ -227,7 +141,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>ecoQuiz</span>
             </div>
           </div>
         </footer>
