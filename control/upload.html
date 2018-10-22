@@ -235,11 +235,21 @@
 					<div class="form-group">
                                             <textarea class="form-control" rows="3"></textarea>
                                         </div>
-
-                                        <button type="submit" class="btn btn-info">Guardar cambios</button>
-                                        <button type="reset" class="btn btn-danger">Borrar</button>
+										<div class="btn-group btn-group-toggle" data-toggle="buttons">
+										  <label class="btn btn-secondary active">
+											<input type="radio" name="options" id="option1" autocomplete="off" checked> Privado
+										  </label>
+										  <label class="btn btn-secondary">
+											<input type="radio" name="options" id="option2" autocomplete="off"> Público
+										  </label>
+										</div>
+                                        
                                     </form>
+								<p></p>
+								<button type="submit" class="btn btn-info">Guardar cambios</button>
+                                <button type="reset" class="btn btn-danger">Borrar</button>
                               </div>
+							  
                               <!-- /.col-lg-6 (nested) -->
 
                               <!-- /.col-lg-6 (nested) -->
