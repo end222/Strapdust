@@ -1,3 +1,4 @@
+![Imgur](https://i.imgur.com/wbr3wus.png)
 # Prácticas de Sistemas de la Información
 La finalidad de estas prácticas es la creación de un sistema capaz de almacenar cuestionarios escritos por alumnos de la Universidad de Zaragoza, los cuales serán posteriomente respondidos por otras personas de manera anónima.
 
