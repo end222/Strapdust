@@ -31,11 +31,11 @@ public class EjemploCargaDatos {
 			// Seleccionamos los titulos y el ano de produccion
 			// de las peliculas almacenadas en la tabla
 			// "title" en la BD MySQL.
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM sisinfo.administrador")) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT NOMBRE FROM ADMINISTRADOR")) {
 
 				// De cada fila extraemos los datos y los procesamos. 
 				// A continuacion los insertamos en la BD Oracle.
-				System.out.println(c.getString("PDI") + " " + c.getString("NOMBRE") + " " + c.getString("PASS"));
+				System.out.println(c.getString("NOMBRE"));
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
