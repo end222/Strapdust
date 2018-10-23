@@ -9,7 +9,7 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazPregunta {
-	public boolean obtenerPreguntas(Cartel cartelBuscar, List<Pregunta> lista) {
+	public static boolean obtenerPreguntas(Cartel cartelBuscar, List<Pregunta> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();

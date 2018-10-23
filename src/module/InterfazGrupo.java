@@ -8,9 +8,9 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazGrupo {
-	public boolean anyadirGrupo(Grupo gr) {
+	public static boolean anyadirGrupo(Grupo gr) {
 		JDBCTemplate mysql = null;
-		boolean correcto = true;
+		boolean correcto = false;
 		String nombre = "";
 		Properties prop = new Properties();
 		try {
@@ -19,9 +19,32 @@ public class InterfazGrupo {
 			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO WHERE NOMRBRE=" + gr.verNombre())) {
 				nombre = c.getString("NOMBRE");
 			}
-			if (nombre == "") correcto = true; // No se ha encontrado el grupo en la base de datos
+			if (nombre.equals("")) correcto = true; // No se ha encontrado el grupo en la base de datos
 			if (correcto) {
-				mysql.executeSentence("INSERT INTO GRUPO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), al.verGrupo());
+				mysql.executeSentence("INSERT INTO GRUPO(NOMBRE, CARTEL) VALUES (?,?)",gr.verNombre(), gr.verCartel());
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	public static boolean anyadirAlumnoGrupo(Alumno al, Grupo gr) {
+		JDBCTemplate mysql = null;
+		boolean correcto = true;
+		int nia = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.verNIA())) {
+				nia = c.getInteger("NIA");
+			}
+			if (nia == -1) correcto = false; // No se ha encontrado el alumno en la base de datos
+			if (correcto) {
+				mysql.executeSentence("REPLACE INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), gr.verNombre());
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

@@ -9,7 +9,7 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazEstadisticas {
-	public boolean obtenerTodasEstadísticas(List<Estadisticas> lista) {
+	public static boolean obtenerTodasEstadísticas(List<Estadisticas> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
@@ -37,7 +37,7 @@ public class InterfazEstadisticas {
 		return correcto;
 	}
 	
-	public boolean anyadirEstadisticas(Estadisticas stats) {
+	public static boolean anyadirEstadisticas(Estadisticas stats) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();

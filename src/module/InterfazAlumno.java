@@ -9,10 +9,13 @@ import jdbc.Cursor;
 import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+
 import module.Alumno;
 
 public class InterfazAlumno {
-	public boolean obtenerTodosAlumnos(List<Alumno> lista) {
+	public static boolean obtenerTodosAlumnos(List<Alumno> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
@@ -37,9 +40,9 @@ public class InterfazAlumno {
 		return correcto;
 	}
 	
-	public boolean anyadirAlumno(Alumno al) {
+	public static boolean anyadirAlumno(Alumno al) {
 		JDBCTemplate mysql = null;
-		boolean correcto = true;
+		boolean correcto = false;
 		int nia = -1;
 		Properties prop = new Properties();
 		try {
@@ -50,7 +53,77 @@ public class InterfazAlumno {
 			}
 			if (nia == -1) correcto = true; // No se ha encontrado el alumno en la base de datos
 			if (correcto) {
-				mysql.executeSentence("INSERT INTO ESTADISTICAS(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), al.verGrupo());
+				mysql.executeSentence("INSERT INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), al.verGrupo());
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	public static boolean anyadirPassword(int nia, String password) {
+		JDBCTemplate mysql = null;
+		boolean correcto = true;
+		int niaCheck = -1;
+		String nombre = "";
+		Timestamp fecha = new Timestamp(0);
+		String grupo = "";
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + nia)) {
+				nombre = c.getString("NOMBRE");
+				fecha = c.getTimestamp("FECHA");
+				grupo = c.getString("GRUPO");
+				niaCheck = c.getInteger("NIA");
+			}
+			if (niaCheck == nia) correcto = false; // No se ha encontrado el alumno en la base de datos
+			if (correcto) {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+		        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+		        StringBuilder pass256 = new StringBuilder();
+		        for (byte b : hashInBytes) {
+		            pass256.append(String.format("%02x", b));
+		        }
+				mysql.executeSentence("REPLACE INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)", nombre, nia, fecha, pass256.toString(), grupo);
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	public static int comprobarPassword(int nia, String password) {
+		JDBCTemplate mysql = null;
+		int correcto = 0;
+		int niaCheck = -1;
+		String passwordCheck = "";
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + nia)) {
+				niaCheck = c.getInteger("NIA");
+				passwordCheck = c.getString("PASS");
+			}
+			if (niaCheck != nia) correcto = 1; // No se ha encontrado el alumno en la base de datos
+			if (correcto == 0) {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+		        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+		        StringBuilder pass256 = new StringBuilder();
+		        for (byte b : hashInBytes) {
+		            pass256.append(String.format("%02x", b));
+		        }
+		        if(!pass256.toString().equals(passwordCheck)) {
+		        	correcto = 2; // La contrasaeña no es correcta
+		        }
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

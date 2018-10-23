@@ -1,8 +1,9 @@
 package module;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pruebas {
-	List<Cartel> lista = new ArrayList<Cartel>();
+	public static void main(String args[]) {
+		int nombre = 741414;
+		String password = "123456";
+		InterfazAlumno.comprobarPassword(nombre, password);
+	}
 }
