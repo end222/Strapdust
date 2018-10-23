@@ -1,13 +1,12 @@
 package module;
 
-import java.util.Date;
 import java.sql.Timestamp;
 
 public class Alumno {
 	private String nombre;
 	private int NIA;
 	private String password;
-	private Date fecha_creacion;
+	private Timestamp fecha_creacion;
 	private String grupo_nombre;
 	
 	public Alumno(String nombre, int NIA, String password, Timestamp fecha, String grupo) {
@@ -30,7 +29,7 @@ public class Alumno {
 		return this.password;
 	}
 	
-	public Date verFecha() {
+	public Timestamp verFecha() {
 		return this.fecha_creacion;
 	}
 	

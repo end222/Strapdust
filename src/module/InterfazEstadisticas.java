@@ -1,32 +1,32 @@
 package module;
 
-import java.util.List;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+import java.util.List;
 import java.util.Properties;
 
 import jdbc.Cursor;
 import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
-import module.Alumno;
-
-public class InterfazAlumno {
-	public boolean obtenerTodosAlumnos(List<Alumno> lista) {
+public class InterfazEstadisticas {
+	public boolean obtenerTodasEstadísticas(List<Estadisticas> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR")) {
-				String nombre = c.getString("NOMBRE");
-				int nia = c.getInteger("NIA");
-				Timestamp fecha = c.getTimestamp("FECHA_INGRESO");
-				String password = c.getString("PASS");
-				String grupo = c.getString("GRUPO_NOMBRE");
-				Alumno al = new Alumno(nombre, nia, password, fecha, grupo);
-				lista.add(al);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS")) {
+				int id = c.getInteger("NUM");
+				int acierto1 = c.getInteger("ACIERTO1");
+				int acierto2 = c.getInteger("ACIERTO2");
+				int acierto3 = c.getInteger("ACIERTO3");
+				int edad = c.getInteger("EDAD");
+				int unizar = c.getInteger("UNIZAR");
+				int cartel = c.getInteger("CARTEL");
+				String opinion = c.getString("OPINION");
+				Estadisticas stats = new Estadisticas(id, acierto1, acierto2, acierto3, edad, unizar, cartel, opinion);
+				lista.add(stats);
 			}
 			correcto = lista.size() != 0;
 		} catch (Exception e) {
@@ -37,21 +37,15 @@ public class InterfazAlumno {
 		return correcto;
 	}
 	
-	public boolean anyadirAlumno(Alumno al) {
+	public boolean anyadirEstadisticas(Estadisticas stats) {
 		JDBCTemplate mysql = null;
-		boolean correcto = true;
-		int nia = -1;
+		boolean correcto = false;
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.verNIA())) {
-				nia = c.getInteger("NIA");
-			}
-			if (nia == -1) correcto = true; // No se ha encontrado el alumno en la base de datos
-			if (correcto) {
-				mysql.executeSentence("INSERT INTO ESTADISTICAS(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), al.verGrupo());
-			}
+			mysql.executeSentence("INSERT INTO ESTADISTICAS(NUM,ACIERTO1,ACIERTO2, ACIERTO3, EDAD, UNIZAR, CARTEL, OPINION) VALUES (?,?,?,?,?,?,?,?)",stats.verID(), stats.verAcierto1(), stats.verAcierto2(), stats.verAcierto3(), stats.verEdad(), stats.verUnizar(), stats.verCartel(), stats.verOpinion());
+			correcto=true;
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
