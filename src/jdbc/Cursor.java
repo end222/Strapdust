@@ -1,6 +1,7 @@
 package jdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Iterator;
 
 /**
@@ -55,6 +56,15 @@ public class Cursor implements Iterable<Cursor> {
 			return rs.getInt(name);
 		} catch (SQLException e) {
 			return 0;
+		}
+	}
+	
+	public Timestamp getTimestamp(String name) {
+		try {
+			return rs.getTimestamp(name);
+		} catch (SQLException e) {
+			Timestamp t = new Timestamp(0);
+			return t;
 		}
 	}
 }
