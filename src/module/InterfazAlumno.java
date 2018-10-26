@@ -99,20 +99,20 @@ public class InterfazAlumno {
 		return correcto;
 	}
 	
-	public static int comprobarPassword(int nia, String password) {
+	public static int comprobarPassword(String nia, String password) {
 		JDBCTemplate mysql = null;
 		int correcto = 0;
-		int niaCheck = -1;
+		String niaCheck = "";
 		String passwordCheck = "";
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
 			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + nia)) {
-				niaCheck = c.getInteger("NIA");
+				niaCheck = c.getString("NIA");
 				passwordCheck = c.getString("PASS");
 			}
-			if (niaCheck != nia) correcto = 1; // No se ha encontrado el alumno en la base de datos
+			if (niaCheck.equals(nia)) correcto = 1; // No se ha encontrado el alumno en la base de datos
 			if (correcto == 0) {
 				MessageDigest md = MessageDigest.getInstance("SHA-256");
 		        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -66,7 +68,7 @@ else if (document.form.pass.value=='user' && document.form.username.value=='user
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form name="form" class="login100-form validate-form">
+				<form name="form" class="login100-form validate-form" action="ComprobarUsuario">
 					<span class="login100-form-title p-b-34">
 						INICIO DE SESIÓN
 					</span>
@@ -81,7 +83,7 @@ else if (document.form.pass.value=='user' && document.form.username.value=='user
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" onclick="go()">
+						<button class="login100-form-btn">
 							Inciar sesión
 						</button>
 					</div>
