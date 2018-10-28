@@ -68,7 +68,7 @@ else if (document.form.pass.value=='user' && document.form.username.value=='user
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form name="form" class="login100-form validate-form" action="ComprobarUsuario">
+				<form name="form" class="login100-form validate-form" action="../ComprobarUsuario.do" method="post">
 					<span class="login100-form-title p-b-34">
 						INICIO DE SESIÓN
 					</span>

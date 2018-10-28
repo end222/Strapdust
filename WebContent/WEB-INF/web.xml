@@ -12,4 +12,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ComprobarUsuario</servlet-name>
 	<servlet-class>module.ComprobarUsuario</servlet-class>
 </servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarUsuario</servlet-name>
+	<url-pattern>/ComprobarUsuario.do</url-pattern>
+</servlet-mapping>
 </web-app>
