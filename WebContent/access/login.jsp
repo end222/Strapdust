@@ -40,31 +40,9 @@
 	
 	
 <!--Login para el acceso temporal al control de administrador y de usuario, próximamente se modificará para su uso con bases de datos -->	
+		
 	
-<script  language="JavaScript"> 
-function go(){
-if (document.form.pass.value=='admin' && document.form.username.value=='admin'){ 
-         	
-window.location.href = "../control/index.html";
-	alert("PROFESOR.");    
 
-    } 
-else if (document.form.pass.value=='user' && document.form.username.value=='user'){ 
-	window.location.href = "../control/alumno.html";
- alert("USUARIO.");          	
-
-
-    } 
-    else{ 
-         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
-    } 
-} 
-</script>	
-	
-	
-	
-	
-	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -89,7 +67,7 @@ else if (document.form.pass.value=='user' && document.form.username.value=='user
 					</div>
 					<p></p>
 					<div class="w-full text-center p-t-20 ">
-						<a href="../control/forgot-password.html" class="txt2">
+						<a href="../WEB-INF/control/forgot-password.html" class="txt2">
 							He olvidado la contraseña
 						</a>
 					</div>

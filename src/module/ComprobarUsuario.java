@@ -1,26 +1,36 @@
 package module;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ComprobarUsuario extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
+			Map<String, String> errors = new HashMap<String,String>();
+			
 			String nombreUsuario = request.getParameter("username");
 			String password = request.getParameter("pass");
 			int resultado = InterfazAlumno.comprobarPassword(nombreUsuario, password);
 			if(resultado == 0) {
-				response.sendRedirect("control/alumno.jsp");
-				Cookie cookieLogin = new Cookie("loginUsuario", nombreUsuario);
+				HttpSession session = request.getSession(true);
+				session.setAttribute("alumno", nombreUsuario);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/alumno.jsp");
+				dispatcher.forward(request, response);
 			}
 			else if(resultado == 3) {
-				response.sendRedirect("control/index.html");
-				Cookie cookieLoginAdmin = new Cookie("loginAdmin", nombreUsuario);
+				HttpSession session = request.getSession(true);
+				session.setAttribute("admin", nombreUsuario);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/administrador.jsp");
+				dispatcher.forward(request, response);
 			}
 			else {
 				response.sendRedirect("500.html");

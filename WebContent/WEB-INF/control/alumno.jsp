@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="es">
 
   <head>
@@ -9,21 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Vista General</title>
+    <title>Alumno</title>
 	  
-	<link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="../favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <link href="control/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
 
     <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="control/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="control/css/sb-admin.css" rel="stylesheet">
 
   </head>
 
@@ -31,7 +31,9 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Administración</a>
+      <!--  <a class="navbar-brand mr-1" href="alumno.jsp">Alumno</a> -->
+      <a class="navbar-brand mr-1" href="alumno.jsp">Alumno</a>
+      
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
 
@@ -75,21 +77,12 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active"> <a class="nav-link" href="index.html"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Configuración:</h6>
-			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
-			  
-            <a class="dropdown-item" href="usuarios.html">Usuarios</a>
-
-            <a class="dropdown-item" href="grupos.html">Grupos</a>
-
-          </div>
+        <li class="nav-item  active"> <a class="nav-link" href="alumno.html"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ComprobarSeguridad.do?direccion=control/upload.jsp&permiso=alumno">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Cartel</span></a>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="stats.html"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
-      
       </ul>
 
       <div id="content-wrapper">
@@ -101,49 +94,40 @@
             <li class="breadcrumb-item">
               <a href="#">Inicio</a>
             </li>
-            <li class="breadcrumb-item active">Vista general</li>
+            <li class="breadcrumb-item active">Información del alumno</li>
           </ol>
-
-          <!-- Icon Cards-->
-          <div class="row">
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-primary o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-images"></i>
-                  </div>
-                  <div class="mr-5">26 Carteles</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="../index.html">
-                  <span class="float-left">Inicio</span>
-                  <span class="float-right">
-                    <i class="fas fa-angle-right"></i>
-                  </span>
-                </a>
-              </div>
+<!-- Page Content -->
+          <h1>Bienvenido #alumno</h1>
+          <hr>
+          
+			<div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-users"></i>
+              Tu Información</div>
+            <div class="card-body">
+             <h4>Addresses</h4>
+				<address>
+					<strong>Nombre</strong>
+					<br>Mitsuha Miyamizu
+					<br>
+					<strong>NIA</strong>
+					<br>000000
+					<br>
+				</address>
+				<address>
+					<strong>Tu grupo</strong>
+					<br>
+					Formas parte del grupo:
+					<br>
+					Los integrantes de ese grupo son:
+				</address>
             </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-user"></i>
-                  </div>
-                  <div class="mr-5">11 Usuarios</div> 
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="usuarios.html"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100">
-                <div class="card-body">
-                  <div class="card-body-icon">
-                    <i class="fas fa-fw fa-users"></i>
-                  </div>
-                  <div class="mr-5">3 Grupos</div>
-                </div>
-                <a class="card-footer text-white clearfix small z-1" href="grupos.html"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
-            </div>
-            
+				<a class="btn btn-secondary btn-block" href="forgot-password.html">Cambiar contraseña</a>
+				<p></p>
+				 <button type="button" class="btn btn-danger">Solicitar baja</button>
+           
           </div>
+          
   </div>
         <!-- /.container-fluid -->
 
@@ -152,7 +136,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>ecoQUIZ</span>
+              <span>ecoQuest</span>
             </div>
           </div>
         </footer>
@@ -188,16 +172,16 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="control/vendor/jquery/jquery.min.js"></script>
+    <script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="control/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="control/vendor/chart.js/Chart.min.js"></script>
+    <script src="control/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="control/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>

@@ -16,4 +16,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ComprobarUsuario</servlet-name>
 	<url-pattern>/ComprobarUsuario.do</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSesion</servlet-name>
+	<servlet-class>module.ComprobarSesion</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSesion</servlet-name>
+	<url-pattern>/ComprobarSesion.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSeguridad</servlet-name>
+	<servlet-class>module.ComprobarSeguridad</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSeguridad</servlet-name>
+	<url-pattern>/ComprobarSeguridad.do</url-pattern>
+</servlet-mapping>
 </web-app>
