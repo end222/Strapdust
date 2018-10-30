@@ -2,10 +2,10 @@ package module;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
 
 public class ComprobarUsuario extends HttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -16,9 +16,11 @@ public class ComprobarUsuario extends HttpServlet{
 			int resultado = InterfazAlumno.comprobarPassword(nombreUsuario, password);
 			if(resultado == 0) {
 				response.sendRedirect("control/alumno.jsp");
+				Cookie cookieLogin = new Cookie("loginUsuario", nombreUsuario);
 			}
 			else if(resultado == 3) {
 				response.sendRedirect("control/index.html");
+				Cookie cookieLoginAdmin = new Cookie("loginAdmin", nombreUsuario);
 			}
 			else {
 				response.sendRedirect("500.html");
