@@ -3,6 +3,8 @@ package module;
 import java.util.List;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 import jdbc.Cursor;
@@ -125,7 +127,7 @@ public class InterfazAlumno {
 			            pass256.append(String.format("%02x", b));
 			        }
 			        if(!pass256.toString().equals(passwordCheck)) {
-			        	correcto = 2; // La contrasaeña no es correcta
+			        	correcto = 2; // La contraseña no es correcta
 			        }
 				}
 			}
@@ -160,6 +162,32 @@ public class InterfazAlumno {
 			if (mysql != null) mysql.disconnect();
 		}
 		return correcto;
+	}
+	
+	public static AlumnoBean obtenerUnAlumno(String niaString) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		String nombre = "";
+		int nia = 0;
+		Timestamp fecha = new Timestamp(0);
+		String grupo = "";
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + niaString)) {
+				nombre = c.getString("NOMBRE");
+				nia = c.getInteger("NIA");
+				fecha = c.getTimestamp("FECHA_INGRESO");
+				grupo = c.getString("GRUPO_NOMBRE");
+			}
+			AlumnoBean al = new AlumnoBean(nombre, nia, fecha, grupo);
+			return al;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
 	}
 	
 	private static JDBCTemplate configureMySQL(Properties prop)

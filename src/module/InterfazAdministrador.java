@@ -1,6 +1,7 @@
 package module;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Properties;
 
@@ -45,7 +46,7 @@ public class InterfazAdministrador {
 			}
 			if (pdi == "") correcto = true; // No se ha encontrado el administrador en la base de datos
 			if (correcto) {
-				mysql.executeSentence("INSERT INTO ADMINISTRADOR(NOMBRE, PDI, PASS) VALUES (?,?,?,?,?)",admin.verNombre(), admin.verPDI(), admin.verPassword());
+				mysql.executeSentence("INSERT INTO ADMINISTRADOR(NOMBRE, PDI, PASS) VALUES (?,?,?)",admin.verNombre(), admin.verPDI(), admin.verPassword());
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -53,6 +54,28 @@ public class InterfazAdministrador {
 			if (mysql != null) mysql.disconnect();
 		}
 		return correcto;
+	}
+	
+	public static AdministradorBean obtenerUnAdmin(String pdiString) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		String nombre = "";
+		String pdi = "";
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE NIA=" + pdiString)) {
+				nombre = c.getString("NOMBRE");
+				pdi = c.getString("NIA");
+			}
+			AdministradorBean admin = new AdministradorBean(nombre, pdi);
+			return admin;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
 	}
 	
 	private static JDBCTemplate configureMySQL(Properties prop)
