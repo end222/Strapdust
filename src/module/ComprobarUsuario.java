@@ -15,7 +15,7 @@ public class ComprobarUsuario extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
-			Map<String, String> errors = new HashMap<String,String>();
+			//Map<String, String> errors = new HashMap<String,String>();
 			
 			String nombreUsuario = request.getParameter("username");
 			String password = request.getParameter("pass");

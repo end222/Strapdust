@@ -26,9 +26,11 @@
     <link href="control/css/sb-admin.css" rel="stylesheet">
 
   </head>
-
+  <jsp:useBean id="AlumnoBean" class="module.AlumnoBean" scope="request" />
+  	
   <body id="page-top">
 
+  	<jsp:getProperty property="nombre" name="alumno"/><br>  
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <!--  <a class="navbar-brand mr-1" href="alumno.jsp">Alumno</a> -->
