@@ -22,13 +22,17 @@ public class ComprobarUsuario extends HttpServlet{
 			int resultado = InterfazAlumno.comprobarPassword(nombreUsuario, password);
 			if(resultado == 0) {
 				HttpSession session = request.getSession(true);
+				AlumnoBean al = InterfazAlumno.obtenerUnAlumno(nombreUsuario);
 				session.setAttribute("alumno", nombreUsuario);
+				request.setAttribute("AlumnoBean",al);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/alumno.jsp");
 				dispatcher.forward(request, response);
 			}
 			else if(resultado == 3) {
 				HttpSession session = request.getSession(true);
+				AdministradorBean admin = InterfazAdministrador.obtenerUnAdmin(nombreUsuario);
 				session.setAttribute("admin", nombreUsuario);
+				request.setAttribute("AdministradorBean",admin);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/administrador.jsp");
 				dispatcher.forward(request, response);
 			}
