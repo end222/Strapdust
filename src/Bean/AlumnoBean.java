@@ -1,4 +1,4 @@
-package module;
+package Bean;
 
 import java.sql.Timestamp;
 
@@ -6,28 +6,35 @@ public class AlumnoBean {
 	private String nombre;
 	private int NIA;
 	private Timestamp fecha_creacion;
-	private String grupo_nombre;
+	private String grupo;
+	
+	public AlumnoBean() {
+		this.nombre = "";
+		this.NIA = 0;
+		this.fecha_creacion = new Timestamp(0);
+		this.grupo = "";
+	}
 	
 	public AlumnoBean(String nombre, int NIA, Timestamp fecha, String grupo) {
 		this.nombre = nombre;
 		this.NIA = NIA;
 		this.fecha_creacion = fecha;
-		this.grupo_nombre = grupo;
+		this.grupo = grupo;
 	}
 	
-	public String verNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 	
-	public int verNIA() {
+	public int getNIA() {
 		return this.NIA;
 	}
 	
-	public Timestamp verFecha() {
+	public Timestamp getFecha() {
 		return this.fecha_creacion;
 	}
 	
-	public String verGrupo() {
-		return this.grupo_nombre;
+	public String getGrupo() {
+		return this.grupo;
 	}
 }

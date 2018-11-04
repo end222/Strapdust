@@ -9,11 +9,11 @@ public class AdministradorBean {
 		this.PDI = PDI;
 	}
 	
-	public String verNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 	
-	public String verPDI() {
+	public String getPDI() {
 		return this.PDI;
 	}
 }

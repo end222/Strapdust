@@ -3,6 +3,7 @@ package module;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import Bean.AlumnoBean;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,7 +38,7 @@ public class ComprobarUsuario extends HttpServlet{
 				dispatcher.forward(request, response);
 			}
 			else {
-				response.sendRedirect("500.html");
+				response.sendRedirect("/500.html");
 			}
 		}
 		catch (Throwable Exception) {

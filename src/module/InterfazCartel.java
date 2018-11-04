@@ -26,7 +26,8 @@ public class InterfazCartel {
 				String reto = c.getString("RETO");
 				int publico = c.getInteger("PUBLICO");
 				Timestamp fecha = c.getTimestamp("FECHA");
-				Cartel cart = new Cartel(id, titulo, noticia, imagen, pregunta_opinion, reto, publico, fecha);
+				String enlace = c.getString("ENLACE");
+				Cartel cart = new Cartel(id, titulo, noticia, imagen, pregunta_opinion, reto, publico, fecha, enlace);
 				lista.add(cart);
 			}
 			correcto = lista.size() != 0;

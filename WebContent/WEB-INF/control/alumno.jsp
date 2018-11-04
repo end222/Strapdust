@@ -26,11 +26,11 @@
     <link href="control/css/sb-admin.css" rel="stylesheet">
 
   </head>
-  <jsp:useBean id="AlumnoBean" class="module.AlumnoBean" scope="request" />
+
   	
   <body id="page-top">
+  	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="request" />
 
-  	<jsp:getProperty property="nombre" name="alumno"/><br>  
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <!--  <a class="navbar-brand mr-1" href="alumno.jsp">Alumno</a> -->
@@ -99,7 +99,7 @@
             <li class="breadcrumb-item active">Información del alumno</li>
           </ol>
 <!-- Page Content -->
-          <h1>Bienvenido #alumno</h1>
+          <h1>Bienvenido <jsp:getProperty property="nombre" name="AlumnoBean"/></h1>
           <hr>
           
 			<div class="card mb-3">
@@ -107,19 +107,19 @@
               <i class="fas fa-users"></i>
               Tu Información</div>
             <div class="card-body">
-             <h4>Addresses</h4>
+             <h4>Información</h4>
 				<address>
 					<strong>Nombre</strong>
-					<br>Mitsuha Miyamizu
+					<br><jsp:getProperty property="nombre" name="AlumnoBean"/>
 					<br>
 					<strong>NIA</strong>
-					<br>000000
+					<br><jsp:getProperty property="NIA" name="AlumnoBean"/>
 					<br>
 				</address>
 				<address>
 					<strong>Tu grupo</strong>
 					<br>
-					Formas parte del grupo:
+					Formas parte del grupo: <jsp:getProperty property="grupo" name="AlumnoBean"/>
 					<br>
 					Los integrantes de ese grupo son:
 				</address>

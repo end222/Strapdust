@@ -18,12 +18,12 @@ public class ComprobarSeguridad extends HttpServlet {
 			HttpSession session = request.getSession();
 			String alumno = (String) session.getAttribute("alumno");
 			String admin = (String) session.getAttribute("admin");
-			if((alumno != null && permiso.equals("alumno")) || (admin != null && permiso == "amdin")) {
+			if((alumno != null && permiso.equals("alumno")) || (admin != null && permiso == "admin")) {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
 					dispatcher.forward(request, response);
 			}
 			else {
-				response.sendRedirect("/Sistemas/500.html");
+				response.sendRedirect("/500.html");
 			}
 		}
 		catch (Throwable Exception) {

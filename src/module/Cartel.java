@@ -6,66 +6,83 @@ public class Cartel {
 	private int ID;
 	private String titulo;
 	private String noticia;
+	private String enlace;
 	private String imagen;
-	private String pregunta_opinion;
+	private String pregunta;
 	private String reto;
 	private int publico;
 	private Timestamp fecha;
 	
-	public Cartel(int ID, String titulo, String noticia, String imagen, String pregunta_opinion, String reto, int publico, Timestamp fecha) {
+	public Cartel(int ID, String titulo, String noticia, String imagen, String pregunta, String reto, int publico, Timestamp fecha, String enlace) {
 		this.ID = ID;
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.imagen = imagen;
-		this.pregunta_opinion = pregunta_opinion;
+		this.pregunta = pregunta;
 		this.reto = reto;
 		this.publico = publico;
 		this.fecha = fecha;
+		this.enlace = enlace;
 	}
 	
-	public Cartel(int ID, String titulo, String noticia, String imagen, String pregunta_opinion, String reto, int publico) {
+	public Cartel(int ID, String titulo, String noticia, String imagen, String pregunta, String reto, int publico, String enlace) {
 		this.ID = ID;
 		this.titulo = titulo;
 		this.noticia = noticia;
 		this.imagen = imagen;
-		this.pregunta_opinion = pregunta_opinion;
+		this.pregunta = pregunta;
 		this.reto = reto;
 		this.publico = publico;
+		this.enlace = enlace;
+	}
+	
+	public Cartel() {
+		this.ID = -1;
+		this.titulo = "";
+		this.noticia = "";
+		this.imagen = "";
+		this.pregunta = "";
+		this.reto = "";
+		this.publico = -1;
 	}
 	
 	public void anyadirFecha(Timestamp fecha) {
 		this.fecha = fecha;
 	}
 	
-	public int verID() {
+	public int getID() {
 		return this.ID;
 	}
 	
-	public String verTitulo() {
+	public String getTitulo() {
 		return this.titulo;
 	}
 	
-	public String verNoticia() {
+	public String getNoticia() {
 		return this.noticia;
 	}
 	
-	public String verImagen() {
+	public String getImagen() {
 		return this.imagen;
 	}
 	
-	public String verPregunta() {
-		return this.pregunta_opinion;
+	public String getPregunta() {
+		return this.pregunta;
 	}
 	
-	public String verReto() {
+	public String getReto() {
 		return this.reto;
 	}
 	
-	public int verPublico() {
+	public int getPublico() {
 		return this.publico;
 	}
 	
-	public Timestamp verFecha() {
+	public Timestamp getFecha() {
 		return this.fecha;
+	}
+	
+	public String getEnlace() {
+		return this.enlace;
 	}
 }

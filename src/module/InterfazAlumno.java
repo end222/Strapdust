@@ -13,6 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 import module.Alumno;
+import Bean.AlumnoBean;
 
 public class InterfazAlumno {
 	public static boolean obtenerTodosAlumnos(List<Alumno> lista) {
