@@ -32,7 +32,7 @@
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-		<a class="navbar-brand mr-1 text-white" href="../index.html">Volver al inicio</a>
+		<a class="navbar-brand mr-1 text-white" href="../">Volver al inicio</a>
 	</nav>
 
 <body>
@@ -79,7 +79,7 @@
 					</div>
 
 					<div class="w-full text-center">
-						<a href="register.html" class="txt3">
+						<a href="register.jsp" class="txt3">
 							Solicitud de registro
 						</a>
 					</div>

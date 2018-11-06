@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
 <head>
 	<title>Registro | ecoQUIZ</title>
 	<meta charset="UTF-8">
@@ -30,7 +30,7 @@
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-		<a class="navbar-brand mr-1 text-white" href="../index.html">Volver al inicio</a>
+		<a class="navbar-brand mr-1 text-white" href="../">Volver al inicio</a>
 	</nav>
 
 <body>
@@ -38,7 +38,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="../RegistrarUsuario.do" method="post">
 					<span class="login100-form-title p-b-34">
 						REGISTRO
 					</span>

@@ -20,6 +20,18 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ComprobarSesion</servlet-name>
 	<servlet-class>module.ComprobarSesion</servlet-class>
 </servlet>
+<servlet>
+	<servlet-name>RegistrarUsuario</servlet-name>
+	<servlet-class>module.RegistrarUsuario</servlet-class>
+</servlet>
+<servlet>
+	<servlet-name>ComprobarToken</servlet-name>
+	<servlet-class>module.ComprobarToken</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarToken</servlet-name>
+	<url-pattern>/ComprobarToken.html</url-pattern>
+</servlet-mapping>
 <servlet-mapping>
 	<servlet-name>ComprobarSesion</servlet-name>
 	<url-pattern>/ComprobarSesion.do</url-pattern>
@@ -39,5 +51,9 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 <servlet-mapping>
 	<servlet-name>index</servlet-name>
 	<url-pattern>/index</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>RegistrarUsuario</servlet-name>
+	<url-pattern>/RegistrarUsuario.do</url-pattern>
 </servlet-mapping>
 </web-app>

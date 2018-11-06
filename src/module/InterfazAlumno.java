@@ -67,22 +67,11 @@ public class InterfazAlumno {
 	public static boolean anyadirPassword(int nia, String password) {
 		JDBCTemplate mysql = null;
 		boolean correcto = true;
-		int niaCheck = -1;
-		String nombre = "";
-		Timestamp fecha = new Timestamp(0);
-		String grupo = "";
+		Timestamp fecha = new Timestamp(System.currentTimeMillis());
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + nia)) {
-				nombre = c.getString("NOMBRE");
-				fecha = c.getTimestamp("FECHA");
-				grupo = c.getString("GRUPO");
-				niaCheck = c.getInteger("NIA");
-			}
-			if (niaCheck == nia) correcto = false; // No se ha encontrado el alumno en la base de datos
-			if (correcto) {
 				MessageDigest md = MessageDigest.getInstance("SHA-256");
 		        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
@@ -90,8 +79,9 @@ public class InterfazAlumno {
 		        for (byte b : hashInBytes) {
 		            pass256.append(String.format("%02x", b));
 		        }
-				mysql.executeSentence("REPLACE INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)", nombre, nia, fecha, pass256.toString(), grupo);
-			}
+		        mysql.executeSentence ("UPDATE ALUMNO SET PASS = ?, FECHA_INGRESO = ? WHERE (NIA = ?)", pass256.toString(), fecha, nia);
+		        mysql.executeSentence("DELETE FROM REGISTRO WHERE ALUMNO_NIA = ?" , nia);
+		        
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
@@ -189,6 +179,41 @@ public class InterfazAlumno {
 		}
 	}
 	
+	public static boolean anyadirToken(String NIA, String token) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			mysql.executeSentence("REPLACE INTO REGISTRO(ALUMNO_NIA, TOKEN) VALUES (?,?)",NIA, token);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+			correcto = true;
+		}
+		return correcto;
+	}
+	
+	
+	public static int leerToken(String token) {
+		JDBCTemplate mysql = null;
+		int NIA = 0;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM REGISTRO WHERE TOKEN=" + "token")) {
+				NIA = c.getInteger("ALUMNO_NIA");
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return NIA;
+	}
 	private static JDBCTemplate configureMySQL(Properties prop)
 			throws InstantiationException, IllegalAccessException,
 			ClassNotFoundException, SQLException {

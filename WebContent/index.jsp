@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML>
+<!--
+	Multiverse by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html lang="es">
 	<head>
 		<title>ecoQUIZ</title>
@@ -10,6 +16,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -19,7 +26,7 @@
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon fa-info-circle">Acerca de</a></li>
-								<li><a href="ComprobarSesion.do"> Iniciar SesiÃ³n</a></li>
+								<li><a href="ComprobarSesion.do"> Iniciar Sesión</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -32,7 +39,7 @@
 						    	<h2><a href="quiz/quiz.html" data-toggle="tooltip" title="Â¡Haz clic para ir al cuestionario!">${Cartel.titulo}</a></h2>
 						    	<p>${Cartel.noticia}</p>
 						    	<a class="btn btn-secondary" href="${Cartel.enlace}">
-						    		Haga click aquÃ­ para ir a la noticia original
+						    		Haga click aquí para ir a la noticia original
 								</a>
 							</article>
 						</c:forEach>
@@ -44,10 +51,10 @@
 							<div>
 								<section>
 									<h2>EcoQUIZ</h2>
-									<p>EcoQUIZ es una paÇµina de cuestinarios sobre temas de actualidad referentes a la concienciaciÃ³n sobre el medio ambiente con la finalidad de ver cuÃ¡n informada estÃ¡ la poblaciÃ³n en este aspecto.</p>
+									<p>EcoQUIZ es una paǵina de cuestinarios sobre temas de actualidad referentes a la concienciación sobre el medio ambiente con la finalidad de ver cuán informada está la población en este aspecto.</p>
 								</section>
 								<section>
-									<h2>SÃ­guenos en...</h2>
+									<h2>Síguenos en...</h2>
 									<ul class="icons">
 										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -70,7 +77,7 @@
 												<input type="text" name="name" id="name" placeholder="Nombre" />
 											</div>
 											<div class="field half">
-												<input type="text" name="email" id="email" placeholder="Correo ElectrÃ³nico" />
+												<input type="text" name="email" id="email" placeholder="Correo Electrónico" />
 											</div>
 											<div class="field">
 												<textarea name="message" id="message" rows="4" placeholder="Mensaje"></textarea>
