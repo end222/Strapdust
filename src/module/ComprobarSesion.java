@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Bean.AlumnoBean;
+
 public class ComprobarSesion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
 			HttpSession session = request.getSession();
-			String alumno = (String) session.getAttribute("alumno");
-			String admin = (String) session.getAttribute("admin");
+			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
+			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if (alumno == null && admin == null) {
 				response.sendRedirect("/Sistemas/access/login.jsp");
 			}

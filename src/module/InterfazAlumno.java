@@ -204,7 +204,7 @@ public class InterfazAlumno {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM REGISTRO WHERE TOKEN=" + "token")) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM REGISTRO WHERE TOKEN=\"" + token +"\"")) {
 				NIA = c.getInteger("ALUMNO_NIA");
 			}
 		} catch (Exception e) {
@@ -230,7 +230,7 @@ public class InterfazAlumno {
 	}
 	private static boolean isNumeric(String str){  
 		try {  
-			double d = Double.parseDouble(str);  
+			Double.parseDouble(str);  
 		}  
 		catch(NumberFormatException nfe)  
 		{  

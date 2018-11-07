@@ -4,14 +4,13 @@ import java.util.Random;
 
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 
 import Bean.AlumnoBean;
 
 import java.sql.Timestamp;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -62,18 +61,30 @@ public class RegistrarUsuario extends HttpServlet{
 					if (InterfazAlumno.anyadirToken(NIA, token)) {
 						//Token insertado satisfactoriamente en la tabla de tokens
 						String correo = NIA + "@unizar.es";
+						
+						String web = "http://localhost:8080/Sistemas/ComprobarToken.html?token=";
+						String msg = web+token;
 						//Enviamos el mensaje al usuario
-						Mailer.send(correo, "Token de registro", token);
+						Mailer.send(correo, "Token de registro", msg);
+						request.setAttribute("success", "Se ha enviado un mensaje de confimación a tu correo de la universidad");
+						RequestDispatcher dispatcher=request.getRequestDispatcher("register.jsp");
+						dispatcher.forward(request, response);
 					}
 					
 				}
 				else {
-					response.sendRedirect("/500.html");
+					request.setAttribute("errorMessage", "El usuario ya ha sido dado de alta en el sistema");
+					RequestDispatcher dispatcher=request.getRequestDispatcher("register.jsp");
+					dispatcher.forward(request, response);
 					// La cuenta ya estaba en el sistema por lo que no se puede registrar
 				}
 		}
 			else {
+				request.setAttribute("errorMessage", "El usuario no se encuentra en la lista de admitidos para participar");
+				RequestDispatcher dispatcher=request.getRequestDispatcher("register.jsp");
+				dispatcher.forward(request, response);
 				//La cuenta ni siquiera está en los usuarios admitidos
+				
 			}
 			
 				

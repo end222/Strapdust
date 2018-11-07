@@ -29,7 +29,7 @@
 
   	
   <body id="page-top">
-  	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="request" />
+  	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="session" />
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
