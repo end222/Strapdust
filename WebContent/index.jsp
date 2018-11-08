@@ -36,7 +36,7 @@
 						<c:forEach items="${LISTA}" var="Cartel">
 						    <article class="thumb">
 						    	<a href="${Cartel.imagen}" class="image"><img src="${Cartel.imagen}" alt="" /></a>
-						    	<h2><a href="quiz/quiz.html" data-toggle="tooltip" title="Â¡Haz clic para ir al cuestionario!">${Cartel.titulo}</a></h2>
+						    	<h2><a href="quiz.html?cartel=${Cartel.ID}" data-toggle="tooltip" title="Â¡Haz clic para ir al cuestionario!">${Cartel.titulo}</a></h2>
 						    	<p>${Cartel.noticia}</p>
 						    	<a class="btn btn-secondary" href="${Cartel.enlace}">
 						    		Haga click aquí para ir a la noticia original

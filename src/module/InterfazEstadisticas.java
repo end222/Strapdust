@@ -9,7 +9,7 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazEstadisticas {
-	public static boolean obtenerTodasEstadísticas(List<Estadisticas> lista) {
+	public static boolean obtenerTodasEstadisticas(List<Estadisticas> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
@@ -17,7 +17,7 @@ public class InterfazEstadisticas {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
 			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS")) {
-				int id = c.getInteger("NUM");
+				int id = c.getInteger("ID");
 				int acierto1 = c.getInteger("ACIERTO1");
 				int acierto2 = c.getInteger("ACIERTO2");
 				int acierto3 = c.getInteger("ACIERTO3");
@@ -37,6 +37,33 @@ public class InterfazEstadisticas {
 		return correcto;
 	}
 	
+	public static Estadisticas obtenerEstadisticas(int ID) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		Estadisticas stats = new Estadisticas();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS")) {
+				int id = c.getInteger("ID");
+				int acierto1 = c.getInteger("ACIERTO1");
+				int acierto2 = c.getInteger("ACIERTO2");
+				int acierto3 = c.getInteger("ACIERTO3");
+				int edad = c.getInteger("EDAD");
+				int unizar = c.getInteger("UNIZAR");
+				int cartel = c.getInteger("CARTEL");
+				String opinion = c.getString("OPINION");
+				stats = new Estadisticas(id, acierto1, acierto2, acierto3, edad, unizar, cartel, opinion);
+			}
+			return stats;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
+	
 	public static boolean anyadirEstadisticas(Estadisticas stats) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
@@ -44,7 +71,7 @@ public class InterfazEstadisticas {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			mysql.executeSentence("INSERT INTO ESTADISTICAS(NUM,ACIERTO1,ACIERTO2, ACIERTO3, EDAD, UNIZAR, CARTEL, OPINION) VALUES (?,?,?,?,?,?,?,?)",stats.verID(), stats.verAcierto1(), stats.verAcierto2(), stats.verAcierto3(), stats.verEdad(), stats.verUnizar(), stats.verCartel(), stats.verOpinion());
+			mysql.executeSentence("REPLACE INTO ESTADISTICAS(ID,ACIERTO1,ACIERTO2, ACIERTO3, EDAD, UNIZAR, CARTEL, OPINION) VALUES (?,?,?,?,?,?,?,?)",stats.verID(), stats.verAcierto1(), stats.verAcierto2(), stats.verAcierto3(), stats.verEdad(), stats.verUnizar(), stats.verCartel(), stats.verOpinion());
 			correcto=true;
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -52,6 +79,27 @@ public class InterfazEstadisticas {
 			if (mysql != null) mysql.disconnect();
 		}
 		return correcto;
+	}
+	
+	public static int obtenerIDMax() {
+		int max = 0;
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS")) {
+				int id = c.getInteger("ID");
+				if(id > max) {
+					max = id;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return max;
 	}
 	
 	private static JDBCTemplate configureMySQL(Properties prop)

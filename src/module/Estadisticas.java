@@ -10,6 +10,8 @@ public class Estadisticas {
 	private int cartel;
 	private String opinion;
 	
+	public Estadisticas() {}
+	
 	public Estadisticas(int ID, int acierto1, int acierto2, int acierto3, int edad, int unizar, int cartel, String opinion) {
 		this.ID = ID;
 		this.acierto1 = acierto1;
@@ -27,6 +29,12 @@ public class Estadisticas {
 		this.acierto2 = acierto2;
 		this.acierto3 = acierto3;
 		this.cartel = cartel;
+	}
+	
+	public void completar(String respuesta, int edad, int unizar) {
+		this.unizar = unizar;
+		this.edad = edad;
+		this.opinion = respuesta;
 	}
 	
 	public int verID() {

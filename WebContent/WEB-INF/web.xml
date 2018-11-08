@@ -56,4 +56,28 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>RegistrarUsuario</servlet-name>
 	<url-pattern>/RegistrarUsuario.do</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>CargarCuestionario</servlet-name>
+	<servlet-class>module.CargarCuestionario</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>CargarCuestionario</servlet-name>
+	<url-pattern>/CargarCuestionario.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>quizStats</servlet-name>
+	<servlet-class>module.quizStats</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>quizStats</servlet-name>
+	<url-pattern>/quizStats</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>enviarRespuestas</servlet-name>
+	<servlet-class>module.enviarRespuestas</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>enviarRespuestas</servlet-name>
+	<url-pattern>/enviarRespuestas</url-pattern>
+</servlet-mapping>
 </web-app>

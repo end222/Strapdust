@@ -39,6 +39,35 @@ public class InterfazCartel {
 		return correcto;
 	}
 	
+	public static Cartel obtenerCartel(int cartel) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		Cartel cart = new Cartel();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM CARTEL WHERE ID=" + cartel)) {
+				String titulo = c.getString("TITULO");
+				int id = c.getInteger("ID");
+				String noticia = c.getString("NOTICIA");
+				String imagen = c.getString("IMAGEN");
+				String pregunta_opinion = c.getString("PREGUNTA_OPINION");
+				String reto = c.getString("RETO");
+				int publico = c.getInteger("PUBLICO");
+				Timestamp fecha = c.getTimestamp("FECHA");
+				String enlace = c.getString("ENLACE");
+				cart = new Cartel(id, titulo, noticia, imagen, pregunta_opinion, reto, publico, fecha, enlace);
+			}
+			return cart;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
+	
+	
 	private static JDBCTemplate configureMySQL(Properties prop)
 			throws InstantiationException, IllegalAccessException,
 			ClassNotFoundException, SQLException {

@@ -9,14 +9,14 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazPregunta {
-	public static boolean obtenerPreguntas(Cartel cartelBuscar, List<Pregunta> lista) {
+	public static boolean obtenerPreguntas(String idCartel, List<Pregunta> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM PREGUNTA WHERE CARTEL=" + cartelBuscar)) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM PREGUNTA WHERE CARTEL=" + idCartel)) {
 				int num = c.getInteger("NUM");
 				int cartel = c.getInteger("CARTEL");
 				String enunciado = c.getString("ENUNCIADO");
@@ -31,6 +31,29 @@ public class InterfazPregunta {
 				lista.add(preg);
 			}
 			correcto = lista.size() != 0;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	public static boolean anyadirPregunta(Pregunta preg) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		int cartel = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM PREGUNTA WHERE CARTEL=" + preg.getCartel() + " AND NUM=" + preg.getNum())) {
+				cartel = c.getInteger("CARTEL");
+			}
+			if (cartel == -1) correcto = true; // No se ha encontrado una pregunta con el mismo numero y cartel en la base de datos
+			if (correcto) {
+				mysql.executeSentence("INSERT INTO PREGUNTA(NUM, CARTEL, ENUNCIADO, RESPUESTA1, RESPUESTA2, RESPUESTA3, CORRECTA1, CORRECTA2, CORRECTA3, EXPLICACION) VALUES (?,?,?,?,?,?,?,?,?,?)",preg.getNum(), preg.getCartel(), preg.getEnunciado(), preg.getRespuesta1(), preg.getRespuesta2(), preg.getRespuesta3(), preg.getCorrecta1(), preg.getCorrecta2(), preg.getCorrecta3(), preg.getExplicacion());
+			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {

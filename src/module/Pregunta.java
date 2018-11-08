@@ -15,52 +15,53 @@ public class Pregunta {
 	public Pregunta(int num, int cartel, String enunciado, String respuesta1, String respuesta2, String respuesta3, int correcta1, int correcta2, int correcta3, String explicacion) {
 		this.num = num;
 		this.cartel = cartel;
+		this.enunciado = enunciado;
 		this.respuesta1 = respuesta1;
 		this.respuesta2 = respuesta2;
 		this.respuesta3 = respuesta3;
 		this.correcta1 = correcta1;
-		this.correcta1 = correcta2;
-		this.correcta1 = correcta3;
+		this.correcta2 = correcta2;
+		this.correcta3 = correcta3;
 		this.explicacion = explicacion;
 	}
 	
-	public int verNum() {
+	public int getNum() {
 		return this.num;
 	}
 	
-	public int verCartel() {
+	public int getCartel() {
 		return this.cartel;
 	}
 	
-	public String verEnunciado() {
+	public String getEnunciado() {
 		return this.enunciado;
 	}
 	
-	public String verRespuesta1() {
+	public String getRespuesta1() {
 		return this.respuesta1;
 	}
 	
-	public String verRespuesta2() {
+	public String getRespuesta2() {
 		return this.respuesta2;
 	}
 	
-	public String verRespuesta3() {
+	public String getRespuesta3() {
 		return this.respuesta3;
 	}
 	
-	public int verCorrecta1() {
+	public int getCorrecta1() {
 		return this.correcta1;
 	}
 	
-	public int verCorrecto2() {
+	public int getCorrecta2() {
 		return this.correcta2;
 	}
 	
-	public int verCorrecto3() {
+	public int getCorrecta3() {
 		return this.correcta3;
 	}
 	
-	public String verExplicacion() {
+	public String getExplicacion() {
 		return this.explicacion;
 	}
 }
