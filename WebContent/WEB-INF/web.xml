@@ -45,6 +45,30 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<url-pattern>/ComprobarSeguridad.do</url-pattern>
 </servlet-mapping>
 <servlet>
+	<servlet-name>CerrarSesion</servlet-name>
+	<servlet-class>module.CerrarSesion</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>CerrarSesion</servlet-name>
+	<url-pattern>/CerrarSesion.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSeguridadTabla</servlet-name>
+	<servlet-class>module.ComprobarSeguridadTabla</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSeguridadTabla</servlet-name>
+	<url-pattern>/ComprobarSeguridadTabla.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSeguridadTablaGrupos</servlet-name>
+	<servlet-class>module.ComprobarSeguridadTablaGrupos</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSeguridadTablaGrupos</servlet-name>
+	<url-pattern>/ComprobarSeguridadTablaGrupos.do</url-pattern>
+</servlet-mapping>
+<servlet>
 	<servlet-name>index</servlet-name>
 	<servlet-class>module.index</servlet-class>
 </servlet>

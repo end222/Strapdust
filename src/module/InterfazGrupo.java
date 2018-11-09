@@ -1,6 +1,9 @@
 package module;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import jdbc.Cursor;
@@ -8,6 +11,39 @@ import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
 
 public class InterfazGrupo {
+	public static boolean obtenerTodosGrupoAlumnos(List<GrupoAlumnos> lista) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO")) {
+				String nombreGrupo = c.getString("NOMBRE");
+				Grupo gr = new Grupo(nombreGrupo);
+				List<Alumno> listaAlumnos = new ArrayList<>();
+				for(Cursor c2: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE GRUPO_NOMBRE='" + gr.verNombre() + "'")) {
+					String nombreAlumno = c2.getString("NOMBRE");
+					int nia = c2.getInteger("NIA");
+					Timestamp fecha = c2.getTimestamp("FECHA_INGRESO");
+					String password = c2.getString("PASS");
+					String grupo = c2.getString("GRUPO_NOMBRE");
+					Alumno al = new Alumno(nombreAlumno, nia, password, fecha, grupo);
+					listaAlumnos.add(al);
+				}
+				GrupoAlumnos grAl = new GrupoAlumnos(gr, listaAlumnos);
+				lista.add(grAl);
+			}
+			correcto = lista.size() != 0;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	
 	public static boolean anyadirGrupo(Grupo gr) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
@@ -16,7 +52,7 @@ public class InterfazGrupo {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO WHERE NOMRBRE=" + gr.verNombre())) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO WHERE NOMBRE='" + gr.verNombre() + "'")) {
 				nombre = c.getString("NOMBRE");
 			}
 			if (nombre.equals("")) correcto = true; // No se ha encontrado el grupo en la base de datos
@@ -39,12 +75,12 @@ public class InterfazGrupo {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.verNIA())) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.getNIA())) {
 				nia = c.getInteger("NIA");
 			}
 			if (nia == -1) correcto = false; // No se ha encontrado el alumno en la base de datos
 			if (correcto) {
-				mysql.executeSentence("REPLACE INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), gr.verNombre());
+				mysql.executeSentence("REPLACE INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.getNombre(), al.getNIA(), al.getFecha(), al.getPassword(), gr.verNombre());
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

@@ -22,11 +22,11 @@ public class ComprobarSesion extends HttpServlet {
 				response.sendRedirect("/Sistemas/access/login.jsp");
 			}
 			else if(alumno != null) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/alumno.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/a_alumno.jsp");
 				dispatcher.forward(request, response);
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/administrador.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_administrador.jsp");
 				dispatcher.forward(request, response);
 			}
 		}

@@ -23,7 +23,7 @@ public class InterfazAlumno {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR")) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO")) {
 				String nombre = c.getString("NOMBRE");
 				int nia = c.getInteger("NIA");
 				Timestamp fecha = c.getTimestamp("FECHA_INGRESO");
@@ -49,12 +49,12 @@ public class InterfazAlumno {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.verNIA())) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.getNIA())) {
 				nia = c.getInteger("NIA");
 			}
 			if (nia == -1) correcto = true; // No se ha encontrado el alumno en la base de datos
 			if (correcto) {
-				mysql.executeSentence("INSERT INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.verNombre(), al.verNIA(), al.verFecha(), al.verPassword(), al.verGrupo());
+				mysql.executeSentence("INSERT INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)",al.getNombre(), al.getNIA(), al.getFecha(), al.getPassword(), al.getGrupo());
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

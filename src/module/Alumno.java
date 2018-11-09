@@ -7,7 +7,7 @@ public class Alumno {
 	private int NIA;
 	private String password;
 	private Timestamp fecha_creacion;
-	private String grupo_nombre;
+	private String grupo;
 	
 	public Alumno(String nombre, int NIA, String password, Timestamp fecha) {
 		this.nombre = nombre;
@@ -20,7 +20,7 @@ public class Alumno {
 		this.NIA = NIA;
 		this.password = password;
 		this.fecha_creacion = fecha;
-		this.grupo_nombre = grupo;
+		this.grupo = grupo;
 	}
 	
 	public void anyadirPassword(String password) {
@@ -28,26 +28,26 @@ public class Alumno {
 	}
 	
 	public void anyadirGrupo(String grupo) {
-		this.grupo_nombre = grupo;
+		this.grupo = grupo;
 	}
 	
-	public String verNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 	
-	public int verNIA() {
+	public int getNIA() {
 		return this.NIA;
 	}
 	
-	public String verPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 	
-	public Timestamp verFecha() {
+	public Timestamp getFecha() {
 		return this.fecha_creacion;
 	}
 	
-	public String verGrupo() {
-		return this.grupo_nombre;
+	public String getGrupo() {
+		return this.grupo;
 	}
 }

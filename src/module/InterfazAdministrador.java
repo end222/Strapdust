@@ -63,9 +63,9 @@ public class InterfazAdministrador {
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE NIA=" + pdiString)) {
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE PDI=\"" + pdiString + "\"")) {
 				nombre = c.getString("NOMBRE");
-				pdi = c.getString("NIA");
+				pdi = c.getString("PDI");
 			}
 			AdministradorBean admin = new AdministradorBean(nombre, pdi);
 			return admin;
