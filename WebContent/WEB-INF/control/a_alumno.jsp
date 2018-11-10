@@ -67,7 +67,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesión</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#change">Cerrar sesión</a>
           </div>
         </li>
       </ul>
@@ -123,7 +123,7 @@
 					Los integrantes de ese grupo son:
 				</address>
             </div>
-				<a class="btn btn-secondary btn-block" href="forgot-password.html">Cambiar contraseña</a>
+				<a class="btn btn-secondary btn-block"  data-toggle="modal" data-target="#logoutModal" >Cambiar contraseña</a>
 				<p></p>
 				 <button type="button" class="btn btn-danger">Solicitar baja</button>
            
@@ -166,11 +166,32 @@
           <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="../access/login.html">Salir</a>
+            <a class="btn btn-primary" href="CerrarSesion.do?">Salir</a>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal cambiar contraseña -->
+    <div class="modal" tabindex="-1" role="dialog" id ="change">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cambiar la contraseña</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" href="/RegistrarUsuario.do" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="control/vendor/jquery/jquery.min.js"></script>
@@ -185,11 +206,11 @@
     <script src="control/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin.min.js"></script>
+    <script src="control/js/sb-admin.min.js"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="js/demo/datatables-demo.js"></script>
-    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="control/js/demo/datatables-demo.js"></script>
+    <script src="control/js/demo/chart-area-demo.js"></script>
 
   </body>
 

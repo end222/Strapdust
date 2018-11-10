@@ -12,3 +12,5 @@ RemoteSystemsTempFiles/.project
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 .settings/org.eclipse.core.runtime.prefs
 .settings/org.eclipse.core.resources.prefs
+*.class
+*.class

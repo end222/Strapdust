@@ -16,6 +16,7 @@ final String pass="24e2315a7820c6";
 Properties props = new Properties();
 props.put("mail.smtp.host", "smtp.mailtrap.io");//change accordingly
 props.put("mail.smtp.auth", "true");
+props.put("mail.smtp.port", "2525");
 
 Session session = Session.getDefaultInstance(props,
  new javax.mail.Authenticator() {

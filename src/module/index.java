@@ -17,7 +17,7 @@ public class index extends HttpServlet {
 			List<Cartel> lista = new ArrayList<>();
 			InterfazCartel.obtenerTodosCarteles(lista);
 			request.setAttribute("LISTA",lista);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/index.jsp");
 			dispatcher.forward(request, response);
 		}
 		catch (Throwable Exception) {

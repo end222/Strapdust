@@ -19,7 +19,7 @@ public class ComprobarSesion extends HttpServlet {
 			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if (alumno == null && admin == null) {
-				response.sendRedirect("/Sistemas/access/login.jsp");
+				response.sendRedirect("/Sistemas/login.jsp");
 			}
 			else if(alumno != null) {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/a_alumno.jsp");

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class RegistrarUsuario extends HttpServlet{
 	
@@ -93,4 +94,25 @@ public class RegistrarUsuario extends HttpServlet{
 			System.out.println(Exception);
 		}
 	}
-}
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		try {
+			
+		
+			HttpSession session = request.getSession();
+			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
+			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
+			if((alumno != null )){
+				
+			}
+			else {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
+				dispatcher.forward(request, response);
+			}
+
+		}
+		catch (Throwable Exception) {
+			System.out.println(Exception);
+		}
+	}
+
