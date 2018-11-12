@@ -1,5 +1,7 @@
 package module;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
@@ -76,6 +78,41 @@ public class InterfazAdministrador {
 			if (mysql != null) mysql.disconnect();
 		}
 	}
+	public static boolean anyadirToken(String PDI, String token) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			mysql.executeSentence ("UPDATE ADMINISTRADOR SET TOKEN = ? WHERE (PDI = ?)", token , PDI);
+		} catch (Exception e) {
+			correcto = false;
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+			correcto = true;
+		}
+		return correcto;
+	}
+	
+	public static String leerToken(String token) {
+		JDBCTemplate mysql = null;
+		String PDI = "";
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE TOKEN=\"" + token +"\"")) {
+				PDI = c.getString("PDI");
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return PDI;
+	}
 	
 	private static JDBCTemplate configureMySQL(Properties prop)
 			throws InstantiationException, IllegalAccessException,
@@ -91,4 +128,29 @@ public class InterfazAdministrador {
 		System.out.println("Conectado a " + mysql);
 		return mysql;
 	}
+
+	public static boolean anyadirPassword(String pdi, String password) {
+		JDBCTemplate mysql = null;
+		boolean correcto = true;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+		        byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+
+		        StringBuilder pass256 = new StringBuilder();
+		        for (byte b : hashInBytes) {
+		            pass256.append(String.format("%02x", b));
+		        }
+		        mysql.executeSentence ("UPDATE ADMINISTRADOR SET PASS = ?, TOKEN = ? WHERE (PDI = ?)", pass256.toString(),null, pdi);
+		        
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+		
 }

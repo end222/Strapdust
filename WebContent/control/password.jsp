@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,7 +29,7 @@
 
     <div class="container">
       <div class="card card-login mx-auto mt-5">
-        <div class="card-header">Cambio de contraseña para ${NIA}</div>
+        <div class="card-header">Cambio de contraseña para <c:out value="${sessionScope.DATA}"/></div>
         <div class="card-body">
           <div class="text-center mb-4">
             <h4>Reestablecer contraseña</h4>
@@ -46,8 +47,6 @@
               <div class="form-label-group">
 
                 <input type="password" id="inputConfirm" class="form-control" required="required" name="confirm">
-                <input type="hidden" name="NIA" value="${NIA}" readonly>
-                <input type="hidden" name="TOKEN" value="${TOKEN}" readonly>
                 <label for="inputEmail">Confirmar nueva contraseña</label>
 
 	 </div>

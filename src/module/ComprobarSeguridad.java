@@ -28,10 +28,11 @@ public class ComprobarSeguridad extends HttpServlet {
 					dispatcher.forward(request, response);
 			}
 			else {
-				response.sendRedirect("/500.html");
+				response.sendRedirect("index");
 			}
 		}
 		catch (Throwable Exception) {
+			response.sendError(500);
 			System.out.println(Exception);
 		}
 	}

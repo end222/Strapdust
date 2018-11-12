@@ -67,7 +67,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#change">Cerrar sesión</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesión</a>
           </div>
         </li>
       </ul>
@@ -98,7 +98,7 @@
             <li class="breadcrumb-item active">Información del alumno</li>
           </ol>
 <!-- Page Content -->
-          <h1>Bienvenido <jsp:getProperty property="nombre" name="AlumnoBean"/></h1>
+          <h1>Hola <jsp:getProperty property="nombre" name="AlumnoBean"/></h1>
           <hr>
           
 			<div class="card mb-3">
@@ -123,7 +123,7 @@
 					Los integrantes de ese grupo son:
 				</address>
             </div>
-				<a class="btn btn-secondary btn-block"  data-toggle="modal" data-target="#logoutModal" >Cambiar contraseña</a>
+				<a class="btn btn-secondary btn-block"  data-toggle="modal" data-target="#change" >Cambiar contraseña</a>
 				<p></p>
 				 <button type="button" class="btn btn-danger">Solicitar baja</button>
            
@@ -186,8 +186,8 @@
         <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" href="/RegistrarUsuario.do" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
