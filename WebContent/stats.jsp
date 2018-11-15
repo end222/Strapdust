@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="es">
 
 	<head>
@@ -89,7 +90,7 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<h4>¿Pertenece a la Universidad de Zaragoza?</h4></input>
+											<h4>¿Pertenece a la Universidad de Zaragoza?</h4>
 											<select class="custom-select" name="uni">
 												<option selected>Seleccionar</option>
 												<option value="1">No</option>
@@ -108,7 +109,7 @@
 										    <p>Introduce tu correo electrónico (opcional) si quieres seguir informado sobre nuestras propuestas de concienciación sobre el cuidado del medio ambiente.</p>
 										    <input class="form-control" placeholder="Ejemplo: usuario@dominio.com">
 										</div>-->
-										<button class="btn btn-info"/>
+										<button class="btn btn-info">
 											Enviar y terminar
 										</button>
 									</form>

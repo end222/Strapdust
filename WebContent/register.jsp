@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
 	<title>Registro | ecoQUIZ</title>
 	<meta charset="UTF-8">
