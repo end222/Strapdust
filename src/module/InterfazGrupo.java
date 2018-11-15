@@ -56,7 +56,9 @@ public class InterfazGrupo {
 			}
 			if (nombre.equals("")) correcto = true; // No se ha encontrado el grupo en la base de datos
 			if (correcto) {
-				mysql.executeSentence("INSERT INTO GRUPO(NOMBRE, CARTEL) VALUES (?,?)",gr.verNombre(), gr.verCartel());
+				mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
+				mysql.executeSentence("REPLACE INTO GRUPO(NOMBRE, CARTEL) VALUES (?,?)",gr.verNombre(), gr.verCartel());
+				mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 1");
 			}
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());

@@ -110,7 +110,7 @@ public class InterfazCartel {
 		}
 	}
 	
-	public static int subirCartel(Cartel cartel, Pregunta pregunta1, Pregunta pregunta2, Pregunta pregunta3, int idCartel) {
+	public static int subirCartel(Cartel cartel, Pregunta pregunta1, Pregunta pregunta2, Pregunta pregunta3, int idCartel, String grupo) {
 		JDBCTemplate mysql = null;
 		Properties prop = new Properties();
 		try {
@@ -125,6 +125,7 @@ public class InterfazCartel {
 					}
 				}
 				idCartel = max + 1;
+				InterfazGrupo.anyadirGrupo(new Grupo(idCartel, grupo));
 			}
 			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
 			mysql.executeSentence("REPLACE INTO CARTEL(ID, TITULO, NOTICIA, IMAGEN, PREGUNTA_OPINION, RETO, PUBLICO, FECHA, ENLACE) VALUES (?,?,?,?,?,?,?,?,?)",idCartel, cartel.getTitulo(), cartel.getNoticia(), "images/" + String.valueOf(idCartel) + ".png", cartel.getPregunta(), cartel.getReto(), cartel.getPublico(), new Timestamp(System.currentTimeMillis()), cartel.getEnlace());

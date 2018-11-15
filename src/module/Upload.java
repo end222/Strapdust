@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.sql.Timestamp;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +30,7 @@ public class Upload extends HttpServlet {
 		AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
 		String grupo = alumno.getGrupo();
 	    int id = InterfazCartel.obtenerCartelId(grupo);
-	    int idCartel = InterfazCartel.subirCartel(cartel, preg1, preg2, preg3, id);
+	    int idCartel = InterfazCartel.subirCartel(cartel, preg1, preg2, preg3, id, grupo);
 	    if(!filePart.getSubmittedFileName().equals("")) {
 		    InputStream fileContent = filePart.getInputStream();
 		    String fileName = String.valueOf(idCartel) + ".png"; // MSIE fix.
