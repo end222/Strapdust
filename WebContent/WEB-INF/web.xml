@@ -19,7 +19,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <error-page>
    <error-code>401</error-code>
    <location>/401.html</location>
- </error-page>
+</error-page>
 <servlet>
 	<servlet-name>ComprobarUsuario</servlet-name>
 	<servlet-class>module.ComprobarUsuario</servlet-class>
@@ -55,6 +55,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 <servlet-mapping>
 	<servlet-name>ComprobarSeguridad</servlet-name>
 	<url-pattern>/ComprobarSeguridad.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSeguridadCarteles</servlet-name>
+	<servlet-class>module.ComprobarSeguridadCarteles</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSeguridadCarteles</servlet-name>
+	<url-pattern>/ComprobarSeguridadCarteles.do</url-pattern>
 </servlet-mapping>
 <servlet>
 	<servlet-name>CerrarSesion</servlet-name>
@@ -116,4 +124,37 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>enviarRespuestas</servlet-name>
 	<url-pattern>/enviarRespuestas</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>CrearAlumno</servlet-name>
+	<servlet-class>module.CrearAlumno</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>CrearAlumno</servlet-name>
+	<url-pattern>/CrearAlumno.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>CrearAdmin</servlet-name>
+	<servlet-class>module.CrearAdmin</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>CrearAdmin</servlet-name>
+	<url-pattern>/CrearAdmin.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>BorrarAlumno</servlet-name>
+	<servlet-class>module.BorrarAlumno</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>BorrarAlumno</servlet-name>
+	<url-pattern>/BorrarAlumno.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>BorrarAdmin</servlet-name>
+	<servlet-class>module.BorrarAdmin</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>BorrarAdmin</servlet-name>
+	<url-pattern>/BorrarAdmin.do</url-pattern>
+</servlet-mapping>
+
 </web-app>

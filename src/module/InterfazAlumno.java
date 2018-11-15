@@ -252,7 +252,7 @@ public class InterfazAlumno {
 		}
 	}
 	
-	public static boolean anyadirToken(String NIA, String token) {
+	public static boolean anyadirToken(int NIA, String token) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
