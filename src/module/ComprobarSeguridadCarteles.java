@@ -14,13 +14,13 @@ import javax.servlet.http.HttpSession;
 import Bean.AlumnoBean;
 
 
-public class ComprobarSeguridadTabla extends HttpServlet {
+public class ComprobarSeguridadCarteles extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
-			List<AlumnoBean> lista = new ArrayList<>();
-			InterfazAlumno.obtenerTodosAlumnos(lista);
-			request.setAttribute("LISTA_AL",lista);
+			List<CartelGrupoAlumnos> lista = new ArrayList<>();
+			InterfazCartel.obtenerTodosCartelGrupoAlumnos(lista);
+			request.setAttribute("LISTA",lista);
 			
 			String direccionCorta = request.getParameter("direccion");
 			String direccion = "/WEB-INF/control/" + direccionCorta;

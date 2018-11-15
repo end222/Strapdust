@@ -16,4 +16,5 @@ public class AdministradorBean {
 	public String getPDI() {
 		return this.PDI;
 	}
+	
 }

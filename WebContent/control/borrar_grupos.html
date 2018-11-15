@@ -137,18 +137,16 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-					  <td>grupo1</td>
-					  <td>123443 - Tiger Nixon<br>123763 - Ashton Cox<br>663443 - Herrod Chandler</td>
-                    </tr>
-					<tr>
-					  <td>grupo3</td>
-					  <td>125433 - Cedric Kelly<br>144343 - Colleen Hurst</td>
-                    </tr>
-					<tr>
-					  <td>grupo6</td>
-					  <td>123888 - Rhona Davidson<br>543443 - Garrett Winters<br>877443 - Airi Satou</td>
-                    </tr>
+                    <c:forEach items="${LISTA_GR}" var="GrupoAlumnos">
+                    	<tr>
+                    	<td>${GrupoAlumnos.grupo}</td>
+                    	<td>
+                    	<c:forEach items="GrupoAlumnos.getLista()" var="alumno" varStatus="status">
+							${GrupoAlumnos.getLista()[status.count - 1].getNIA()} - ${GrupoAlumnos.getLista()[status.count - 1].getNombre()}<br>
+						</c:forEach>
+						</td>
+						</tr>
+					</c:forEach>
                   </tbody>
                 </table>
               </div>

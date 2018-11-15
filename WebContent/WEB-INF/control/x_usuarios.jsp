@@ -14,7 +14,7 @@
 
     <title>Usuarios</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -109,7 +109,7 @@
           </ol>
 			<div>
 			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario.jsp"><strong>Añadir nuevos alumnos</strong></a>
-			<a class="btn btn-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_borrar_usuarios.jsp"><strong>Eliminar alumnos</strong></a>
+			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTabla.do?direccion=x_borrar_usuarios.jsp"><strong>Eliminar alumnos</strong></a>
 				
 			
 			<a class="btn btn-info btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_admin.jsp">Añadir nuevos administradores</a>
@@ -141,12 +141,12 @@
                     </tr>
                   </tfoot>
                   <tbody>
-					<c:forEach items="${LISTA_AL}" var="Alumno">
+					<c:forEach items="${LISTA_AL}" var="AlumnoBean">
 						<tr>
-							<td><c:out value="${Alumno.NIA}" /></td>
-					    	<td><c:out value="${Alumno.nombre}" /></td>
-					    	<td>${Alumno.grupo_nombre}"</td>
-					    	<td>${Alumno.fecha_creacion}"</td>
+							<td><c:out value="${AlumnoBean.NIA}" /></td>
+					    	<td><c:out value="${AlumnoBean.nombre}" /></td>
+					    	<td>${AlumnoBean.grupo}</td>
+					    	<td>${AlumnoBean.fecha}</td>
 					    	
 					    </tr>
 					</c:forEach>

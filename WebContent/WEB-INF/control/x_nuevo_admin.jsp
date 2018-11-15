@@ -13,7 +13,7 @@
 
     <title>Añadir administradores</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -119,13 +119,20 @@
 	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario.jsp" role="alert">
 	  Para añadir alumnos haga click aquí
 	</a></div>
-			  
+			  <br>
+							<font size="3" color="green">${successMessage}</font>
+					<br>
+							<font size="3" color="red">${errorMessage}</font>
+					<br>
+							<font size="3" color="red">${errorLista}</font>
+			<form id="myform" action="CrearAdmin.do" method="post">
 		    <div class="form-group">
                  <strong>Introduzca nuevos administradores*</strong>
-                <textarea class="form-control" rows="3" ></textarea>
+              	 <textarea class="form-control" rows="3" name="usuarios"></textarea>
 				  </div>
-			  <button type="submit" class="btn btn-block btn-lg btn-info">Guardar cambios</button>
+			  <button type="submit" form="myform" class="btn btn-block btn-lg btn-info">Guardar cambios</button>
 			  <p></p>
+			  </form>
 		    <div class="form-group">
 				  <p class="card-footer text-muted">*Debe introducirse un nuevo usuario en cada linea siguiendo el siguiente formato:<br> PID Apellidos Nombre<br> PID2 Apellidos2 Nombre2<br> ...</p>
 				  <p class=" text-muted">Ejemplo:</p>

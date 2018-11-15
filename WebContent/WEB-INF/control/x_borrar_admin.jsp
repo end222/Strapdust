@@ -13,7 +13,7 @@
 
     <title>Borrar administradores</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -113,20 +113,31 @@
 			<div class="alert alert-warning" role="alert">
 			  ATENCIÓN - Está a punto de borrar usuarios con privilegios de administrador
 			</div>
-	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_borrar_usuarios.jsp" role="alert">
+	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridadTabla.do?direccion=x_borrar_usuarios.jsp" role="alert">
 	  Para borrar alumnos haga click aquí
 	</a></div>
-                 <strong>Introduzca administradores a borrar*</strong>
-                <textarea class="form-control" rows="3" ></textarea>
-				  </div>
-			<div class="form-group">
-				  <p class="card-footer text-muted">*Deben introducirse los PIDs de los usuarios a borrar, separados por espacios o saltos de línea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
-              </div>
+	
+					<font size="3" color="green">${successMessage}</font>
 			
+					<font size="3" color="red">${errorMessage}</font>
+			
+					<font size="3" color="red">${errorLista}</font>
+			<p></p>
+			
+			<form id="myform" action="BorrarAdmin.do" method="post">
+			<div class="form-group">
+                 <strong>Introduzca administradores a borrar*</strong>
+                <textarea class="form-control" rows="3" name="usuarios"></textarea>
+				  </div>	
 		
          </div>
-			  <button type="submit" class="btn btn-block btn-lg btn btn-danger">Borrar administradores</button>
+			  <button type="submit" form="myform" class="btn btn-block btn-lg btn btn-danger">Borrar administradores</button>
+			 
 			  <p></p>
+			  </form>
+			  <div class="form-group">
+				  <p class="card-footer text-muted">*Deben introducirse los PIDs de los usuarios a borrar, separados por espacios o saltos de línea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
+              </div>
 		    <div class="form-group">
 	
 		<p class="text-center text-muted my-5">

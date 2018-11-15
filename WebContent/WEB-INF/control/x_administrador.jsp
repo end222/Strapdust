@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html lang="es">
 
 	<head>
@@ -12,7 +11,7 @@
 
 		<title>Vista General</title>
 
-		<link rel="icon" type="image/png" href="../favicon.ico"/>
+		<link rel="icon" type="image/png" href="favicon.ico"/>
 
 		<!-- Bootstrap core CSS-->
 		<link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -115,7 +114,7 @@
 									</div>
 									<div class="mr-5">26 Carteles</div>
 								</div>
-								<a class="card-footer text-white clearfix small z-1" href="../index.html">
+								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadCarteles.do?direccion=x_carteles.jsp">
 									<span class="float-left">Inicio</span>
 									<span class="float-right">
 										<i class="fas fa-angle-right"></i>

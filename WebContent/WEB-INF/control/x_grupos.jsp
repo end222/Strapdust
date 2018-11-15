@@ -14,7 +14,7 @@
 
     <title>Grupos</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -106,7 +106,7 @@
             <li class="breadcrumb-item active">Grupos</li>
           </ol>
 			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_grupo.jsp">Crear nuevo grupo</a>
-			<a class="btn btn-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_borrar_grupos.jsp">Eliminar grupos</a>
+			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTablaGrupos.do?direccion=x_borrar_grupos.jsp">Eliminar grupos</a>
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
@@ -131,10 +131,12 @@
                   <tbody>
                     <c:forEach items="${LISTA_GR}" var="GrupoAlumnos">
                     	<tr>
-                    	<td>${GrupoAlumnos.Grupo.nombre}</td>
+                    	<td>${GrupoAlumnos.grupo}</td>
                     	<td>
-                    	<c:forEach items="${LISTA_GR}" var="Alumno">
-							${GrupoAlumnos.Alumno.NIA} - ${GrupoAlumnos.Alumno.nombre}<br>
+                    	<c:forEach items="GrupoAlumnos.getLista()" var="listaAlumnos" varStatus="status">
+                    		<c:forEach items="${GrupoAlumnos.getLista()}" var="listaListaAlumnos" varStatus="status2">
+								${GrupoAlumnos.getLista()[status2.count - 1].getNIA()} - ${GrupoAlumnos.getLista()[status2.count - 1].getNombre()}<br>
+							</c:forEach>
 						</c:forEach>
 						</td>
 						</tr>

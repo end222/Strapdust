@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import Bean.AlumnoBean;
 import jdbc.Cursor;
 import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
@@ -20,18 +21,16 @@ public class InterfazGrupo {
 			mysql = configureMySQL(prop);
 			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO")) {
 				String nombreGrupo = c.getString("NOMBRE");
-				Grupo gr = new Grupo(nombreGrupo);
-				List<Alumno> listaAlumnos = new ArrayList<>();
-				for(Cursor c2: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE GRUPO_NOMBRE='" + gr.verNombre() + "'")) {
+				List<AlumnoBean> listaAlumnos = new ArrayList<>();
+				for(Cursor c2: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE GRUPO_NOMBRE='" + nombreGrupo + "'")) {
 					String nombreAlumno = c2.getString("NOMBRE");
 					int nia = c2.getInteger("NIA");
 					Timestamp fecha = c2.getTimestamp("FECHA_INGRESO");
-					String password = c2.getString("PASS");
 					String grupo = c2.getString("GRUPO_NOMBRE");
-					Alumno al = new Alumno(nombreAlumno, nia, password, fecha, grupo);
+					AlumnoBean al = new AlumnoBean(nombreAlumno, nia, fecha, grupo);
 					listaAlumnos.add(al);
 				}
-				GrupoAlumnos grAl = new GrupoAlumnos(gr, listaAlumnos);
+				GrupoAlumnos grAl = new GrupoAlumnos(nombreGrupo, listaAlumnos);
 				lista.add(grAl);
 			}
 			correcto = lista.size() != 0;

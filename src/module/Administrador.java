@@ -4,11 +4,18 @@ public class Administrador {
 	private String nombre;
 	private String PDI;
 	private String password;
+	private String token;
 	
-	public Administrador(String nombre, String PDI, String password) {
+	public Administrador(String nombre, String PDI) {
+		this.nombre = nombre;
+		this.PDI = PDI;
+	}
+	
+	public Administrador(String nombre, String PDI, String password, String token) {
 		this.nombre = nombre;
 		this.PDI = PDI;
 		this.password = password;
+		this.token = token;
 	}
 	
 	public String verNombre() {
@@ -21,5 +28,9 @@ public class Administrador {
 	
 	public String verPassword() {
 		return this.password;
+	}
+	
+	public String verToken() {
+		return this.token;
 	}
 }

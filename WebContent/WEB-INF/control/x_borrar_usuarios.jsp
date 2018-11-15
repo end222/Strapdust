@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,7 +14,7 @@
 
     <title>Borrar usuarios</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -108,11 +109,21 @@
 		</li>
 		<li class="breadcrumb-item active">Borrar alumnos</li>
           </ol>
-          <!-- DataTables Example -->
+          
+          
+					<font size="3" color="green">${successMessage}</font>
+			
+					<font size="3" color="red">${errorMessage}</font>
+			
+					<font size="3" color="red">${errorLista}</font>
+			<p></p>
+			
+			<form id="myform" action="BorrarAlumno.do" method="post">
 			<div class="form-group">
                  <strong>Introduzca alumnos a borrar*</strong>
-                <textarea class="form-control" rows="3" ></textarea>
+                <textarea class="form-control" rows="3" name="usuarios"></textarea>
 				  </div>
+			
 			<div class="form-group">
 				  <p class="card-footer text-muted">*Deben introducirse los NIAs de los usuarios a borrar, separados por espacios o saltos de línea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
               </div>
@@ -142,83 +153,21 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-					  <td>123443</td>
-					  <td>Tiger Nixon</td>
-					  <td>grupo1</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-					  <td>543443</td>
-                      <td>Garrett Winters</td>
-					  <td>grupo6</td>
-                      <td>2011/07/25</td>
-                    </tr>
-                    <tr>
-					  <td>123763</td>
-                      <td>Ashton Cox</td>
-					  <td>grupo1</td>
-                      <td>2009/01/12</td>
-                    </tr>
-                    <tr>
-					  <td>125433</td>
-                      <td>Cedric Kelly</td>
-					  <td>grupo3</td>
-                      <td>2012/03/29</td>
-                    </tr>
-                    <tr>
-					  <td>877443</td>
-                      <td>Airi Satou</td>
-					  <td>grupo6</td>
-                      <td>2008/11/28</td>
-                    </tr>
-                    <tr>
-					  <td>123453</td>
-                      <td>Brielle Williamson</td>
-					  <td>---</td>
-                      <td>2012/12/02</td>
-                    </tr>
-                    <tr>
-					  <td>663443</td>
-                      <td>Herrod Chandler</td>
-					  <td>grupo1</td>
-                      <td>2012/08/06</td>
-                    </tr>
-                    <tr>
-					  <td>123888</td>
-                      <td>Rhona Davidson</td>
-					  <td>grupo6</td>
-                      <td>2010/10/14</td>
-                    </tr>
-                    <tr>
-					  <td>144343</td>
-                      <td>Colleen Hurst</td>
-					  <td>grupo3</td>
-                      <td>2009/09/15</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Will Smitd</td>
-					  <td>---</td>
-                      <td>2013/09/15</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Homer Simpson</td>
-					  <td>---</td>
-                      <td>2011/10/11</td>
-                    </tr>
-					<tr>
-					  <td>334343</td>
-                      <td>Pedro Picapiedra</td>
-					  <td>---</td>
-                      <td>2008/12/11</td>
-                    </tr>
+                    <c:forEach items="${LISTA_AL}" var="AlumnoBean">
+						<tr>
+							<td><c:out value="${AlumnoBean.NIA}" /></td>
+					    	<td><c:out value="${AlumnoBean.nombre}" /></td>
+					    	<td>${AlumnoBean.grupo}</td>
+					    	<td>${AlumnoBean.fecha}</td>
+					    	
+					    </tr>
+					</c:forEach>
                   </tbody>
                 </table>
               </div>
             </div>
-	<button type="button" class="btn btn-lg btn-danger">Borrar alumnos</button>
+	<button type="submit" form="myform" class="btn btn-lg btn-danger">Borrar alumnos</button>
+	</form>
 		<p class="text-center text-muted my-5">
            Se borrarán los usuarios seleccionados<br>(los cambios no pueden deshacerse)
           </p>  

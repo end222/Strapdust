@@ -199,4 +199,8 @@ public class JDBCTemplate {
 		}
 		return null;
 	}
+
+	public com.mysql.jdbc.Connection getConnection() {
+		return (com.mysql.jdbc.Connection) this.connection;
+	}
 }

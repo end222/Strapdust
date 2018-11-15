@@ -1,10 +1,12 @@
 package module;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Properties;
 
+import com.mysql.jdbc.Connection;
 import jdbc.Cursor;
 import jdbc.JDBCTemplate;
 import jdbc.MySQLConfiguration;
@@ -16,7 +18,7 @@ import module.Alumno;
 import Bean.AlumnoBean;
 
 public class InterfazAlumno {
-	public static boolean obtenerTodosAlumnos(List<Alumno> lista) {
+	public static boolean obtenerTodosAlumnos(List<AlumnoBean> lista) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();
@@ -27,9 +29,8 @@ public class InterfazAlumno {
 				String nombre = c.getString("NOMBRE");
 				int nia = c.getInteger("NIA");
 				Timestamp fecha = c.getTimestamp("FECHA_INGRESO");
-				String password = c.getString("PASS");
 				String grupo = c.getString("GRUPO_NOMBRE");
-				Alumno al = new Alumno(nombre, nia, password, fecha, grupo);
+				AlumnoBean al = new AlumnoBean(nombre, nia, fecha, grupo);
 				lista.add(al);
 			}
 			correcto = lista.size() != 0;
@@ -62,6 +63,78 @@ public class InterfazAlumno {
 			if (mysql != null) mysql.disconnect();
 		}
 		return correcto;
+	}
+	
+	public static int anyadirListaAlumnos(List<Alumno> lista) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		int insertados = 0;
+		int nia = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			Connection connection = mysql.getConnection();
+			java.sql.PreparedStatement statement = connection.prepareStatement("INSERT INTO ALUMNO(NOMBRE, NIA, FECHA_INGRESO, PASS, GRUPO_NOMBRE) VALUES (?,?,?,?,?)");
+			for (Alumno al : lista) {
+				for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al.getNIA())) {
+					nia = c.getInteger("NIA");
+				}
+				if (nia == -1) correcto = true; // No se ha encontrado el alumno en la base de datos
+				if (correcto) {
+					statement.setString(1, al.getNombre());
+					statement.setInt(2, al.getNIA());
+					statement.setTimestamp(3, al.getFecha());
+					statement.setString(4, al.getPassword());
+					statement.setString(5, al.getGrupo());
+					statement.addBatch();
+					insertados++;
+				}
+				if (insertados % 1000 == 0 || insertados == lista.size()) {
+	                statement.executeBatch(); // Hacer batch de 1000 alumnos como maximo a la vez
+	            }
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return insertados;
+	}
+	
+	public static List<Integer> eliminarListaAlumnos(List<Integer> lista) {
+		JDBCTemplate mysql = null;
+		int procesados = 0;
+		int nia = -1;
+		List<Integer> listaInexistentes = new ArrayList<>();
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			Connection connection = mysql.getConnection();
+			java.sql.PreparedStatement statement = connection.prepareStatement("DELETE FROM ALUMNO WHERE NIA=?");
+			for (Integer al : lista) {
+				procesados++;
+				for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al)) {
+					nia = c.getInteger("NIA");
+				}
+				if (nia == al) {	// El alumno existe en la BBDD
+					statement.setInt(1, al);
+					statement.addBatch();
+				}
+				else {
+					listaInexistentes.add(al); //Se añade a la lista de los inexistentes
+				}
+				if (procesados % 1000 == 0 || procesados == lista.size()) {
+	                statement.executeBatch(); // Hacer batch de 1000 alumnos como maximo a la vez
+	            }
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return listaInexistentes;
 	}
 	
 	public static boolean anyadirPassword(int nia, String password) {
@@ -179,7 +252,7 @@ public class InterfazAlumno {
 		}
 	}
 	
-	public static boolean anyadirToken(int NIA, String token) {
+	public static boolean anyadirToken(String NIA, String token) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
 		Properties prop = new Properties();

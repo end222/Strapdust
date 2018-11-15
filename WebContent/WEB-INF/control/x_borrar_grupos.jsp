@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,7 +14,7 @@
 
     <title>Borrar grupos</title>
 	  
-	  <link rel="icon" type="image/png" href="../favicon.ico"/>
+	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
     <!-- Bootstrap core CSS-->
     <link href="control/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -139,18 +140,18 @@
                     </tr>
                   </tfoot>
                   <tbody>
-                    <tr>
-					  <td>grupo1</td>
-					  <td>123443 - Tiger Nixon<br>123763 - Ashton Cox<br>663443 - Herrod Chandler</td>
-                    </tr>
-					<tr>
-					  <td>grupo3</td>
-					  <td>125433 - Cedric Kelly<br>144343 - Colleen Hurst</td>
-                    </tr>
-					<tr>
-					  <td>grupo6</td>
-					  <td>123888 - Rhona Davidson<br>543443 - Garrett Winters<br>877443 - Airi Satou</td>
-                    </tr>
+                    <c:forEach items="${LISTA_GR}" var="GrupoAlumnos">
+                    	<tr>
+                    	<td>${GrupoAlumnos.grupo}</td>
+                    	<td>
+                    	<c:forEach items="GrupoAlumnos.getLista()" var="listaAlumnos" varStatus="status">
+                    		<c:forEach items="${GrupoAlumnos.getLista()}" var="listaListaAlumnos" varStatus="status2">
+								${GrupoAlumnos.getLista()[status2.count - 1].getNIA()} - ${GrupoAlumnos.getLista()[status2.count - 1].getNombre()}<br>
+							</c:forEach>
+						</c:forEach>
+						</td>
+						</tr>
+					</c:forEach>
                   </tbody>
                 </table>
               </div>
