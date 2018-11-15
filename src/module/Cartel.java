@@ -46,6 +46,18 @@ public class Cartel {
 		this.publico = -1;
 	}
 	
+	public void poblar(int ID, String titulo, String noticia, String imagen, String pregunta, String reto, int publico, Timestamp fecha, String enlace) {
+		this.ID = ID;
+		this.titulo = titulo;
+		this.noticia = noticia;
+		this.imagen = imagen;
+		this.pregunta = pregunta;
+		this.reto = reto;
+		this.publico = publico;
+		this.fecha = fecha;
+		this.enlace = enlace;
+	}
+	
 	public void anyadirFecha(Timestamp fecha) {
 		this.fecha = fecha;
 	}

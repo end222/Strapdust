@@ -25,6 +25,19 @@ public class Pregunta {
 		this.explicacion = explicacion;
 	}
 	
+	public Pregunta() {
+		this.num = 0;
+		this.cartel = 0;
+		this.enunciado = "";
+		this.respuesta1 = "";
+		this.respuesta2 = "";
+		this.respuesta3 = "";
+		this.correcta1 = 0;
+		this.correcta2 = 0;
+		this.correcta3 = 0;
+		this.explicacion = "";
+	}
+	
 	public int getNum() {
 		return this.num;
 	}
