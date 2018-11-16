@@ -24,6 +24,7 @@ public class ComprobarSeguridad extends HttpServlet {
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if((alumno != null && (direccionCorta.substring(0, 1)).equals("a"))
 				|| (admin != null && (direccionCorta.substring(0, 1)).equals("x"))) {
+					
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
 					dispatcher.forward(request, response);
 			}
