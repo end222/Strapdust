@@ -20,8 +20,7 @@ import Bean.AlumnoBean;
 public class Upload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    //String description = request.getParameter("description"); // Retrieves <input type="text" name="description">
-	    Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
+	    Part filePart = request.getPart("file");
 	    Pregunta preg1 = new Pregunta(1, 0, String.valueOf(request.getParameter("enunciado1")), String.valueOf(request.getParameter("pregunta11")), String.valueOf(request.getParameter("pregunta12")), String.valueOf(request.getParameter("pregunta13")), (request.getParameter("respuesta11") != null) ? 1 : 0, (request.getParameter("respuesta12") != null) ? 1 : 0, (request.getParameter("respuesta13") != null) ? 1 : 0, String.valueOf(request.getParameter("explicacion1")));
 	    Pregunta preg2 = new Pregunta(2, 0, String.valueOf(request.getParameter("enunciado2")), String.valueOf(request.getParameter("pregunta21")), String.valueOf(request.getParameter("pregunta22")), String.valueOf(request.getParameter("pregunta23")), (request.getParameter("respuesta21") != null) ? 1 : 0, (request.getParameter("respuesta22") != null) ? 1 : 0, (request.getParameter("respuesta23") != null) ? 1 : 0, String.valueOf(request.getParameter("explicacion2")));
 	    Pregunta preg3 = new Pregunta(3, 0, String.valueOf(request.getParameter("enunciado3")), String.valueOf(request.getParameter("pregunta31")), String.valueOf(request.getParameter("pregunta12")), String.valueOf(request.getParameter("pregunta33")), (request.getParameter("respuesta31") != null) ? 1 : 0, (request.getParameter("respuesta32") != null) ? 1 : 0, (request.getParameter("respuesta33") != null) ? 1 : 0, String.valueOf(request.getParameter("explicacion3")));
@@ -34,7 +33,7 @@ public class Upload extends HttpServlet {
 	    if(!filePart.getSubmittedFileName().equals("")) {
 		    InputStream fileContent = filePart.getInputStream();
 		    String fileName = String.valueOf(idCartel) + ".png"; // MSIE fix.
-		    File file = new File("/home/pablo/eclipse/jee-2018-09/workspace/Sistemas/WebContent/images", fileName);
+		    File file = new File("/home/pablo/Java-EE/Workspace/Sistemas/WebContent/images", fileName);
 		    if(file.exists()) file.delete();
 		    Files.copy(fileContent, file.toPath());
 	    }

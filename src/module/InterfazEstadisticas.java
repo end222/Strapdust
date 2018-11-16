@@ -37,6 +37,39 @@ public class InterfazEstadisticas {
 		return correcto;
 	}
 	
+	public static void obtenerRespuestasCorrectas(int id, List<Integer> lista) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		Properties prop = new Properties();
+		int correctas1 = 0;
+		int correctas2 = 0;
+		int correctas3 = 0;
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS WHERE CARTEL=\"" + id + "\"")) {
+				int idStats = c.getInteger("ID");
+				int acierto1 = c.getInteger("ACIERTO1");
+				if(acierto1 == 1) correctas1++;
+				int acierto2 = c.getInteger("ACIERTO2");
+				if(acierto2 == 1) correctas2++;
+				int acierto3 = c.getInteger("ACIERTO3");
+				if(acierto3 == 1) correctas3++;
+				int edad = c.getInteger("EDAD");
+				int unizar = c.getInteger("UNIZAR");
+				int cartel = c.getInteger("CARTEL");
+				String opinion = c.getString("OPINION");
+			}
+			lista.add(correctas1);
+			lista.add(correctas2);
+			lista.add(correctas3);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
+	
 	public static Estadisticas obtenerEstadisticas(int ID) {
 		JDBCTemplate mysql = null;
 		Properties prop = new Properties();
