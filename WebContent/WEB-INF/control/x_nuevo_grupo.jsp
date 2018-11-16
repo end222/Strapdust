@@ -113,18 +113,28 @@
             <div class="card-header">
               <i class="fas fa-users"></i>
               Crear nuevo grupo</div>
+              
+              <font size="3" color="green">${successMessage}</font>
+			
+					<font size="3" color="red">${errorMessage}</font>
+			
+					<font size="3" color="red">${errorLista}</font>
+			<p></p>
+			
+			<form id="myform" action="CrearGrupo.do" method="post">
 			<p></p>
 		    <div class="form-group">
                  <strong>Introduzca nombre de grupo</strong>
-              <input class="form-control">
+              <input class="form-control" name="grupo">
               </div>
 			  
 			  <div class="form-group">
                  <strong>Introduzca integrantes del grupo*</strong>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" rows="3" name="usuarios"></textarea>
 				  </div>
-			  <button type="submit" class="btn btn-block btn-lg btn-info" >Guardar cambios</button>
+			  <button type="submit" form="myform" class="btn btn-block btn-lg btn-info" >Guardar cambios</button>
 			  <p></p>
+			  </form>
 			  <div class="form-group">
 				  <p class="card-footer text-muted">*Deben introducirse los NIAs de los integrantes separados por espacios o saltos de línea. Ejemplo:</p>
 				  <input class="form-control" id="disabledInput" placeholder="123456 222222 112233" disabled="" type="text">

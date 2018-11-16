@@ -10,7 +10,7 @@ public class Grupo {
 	}
 	
 	public Grupo(String nombre) {
-		this.cartel = -1;
+		this.cartel = 0;
 		this.nombre = nombre;
 	}
 	

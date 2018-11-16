@@ -64,6 +64,23 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ComprobarSeguridadCarteles</servlet-name>
 	<url-pattern>/ComprobarSeguridadCarteles.do</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>ObtenerDatosQuiz</servlet-name>
+	<servlet-class>module.ObtenerDatosQuiz</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerDatosQuiz</servlet-name>
+	<url-pattern>/ObtenerDatosQuiz</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>Upload</servlet-name>
+	<servlet-class>module.Upload</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Upload</servlet-name>
+	<url-pattern>/Upload</url-pattern>
+</servlet-mapping>
 <servlet>
 	<servlet-name>CerrarSesion</servlet-name>
 	<servlet-class>module.CerrarSesion</servlet-class>
@@ -155,21 +172,21 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 <servlet-mapping>
 	<servlet-name>BorrarAdmin</servlet-name>
 	<url-pattern>/BorrarAdmin.do</url-pattern>
-</servlet-mapping>
-<servlet>
-	<servlet-name>Upload</servlet-name>
-	<servlet-class>module.Upload</servlet-class>
+</servlet-mapping><servlet>
+	<servlet-name>CrearGrupo</servlet-name>
+	<servlet-class>module.CrearGrupo</servlet-class>
 </servlet>
 <servlet-mapping>
-	<servlet-name>Upload</servlet-name>
-	<url-pattern>/Upload</url-pattern>
+	<servlet-name>CrearGrupo</servlet-name>
+	<url-pattern>/CrearGrupo.do</url-pattern>
 </servlet-mapping>
 <servlet>
-	<servlet-name>ObtenerDatosQuiz</servlet-name>
-	<servlet-class>module.ObtenerDatosQuiz</servlet-class>
+	<servlet-name>BorrarGrupo</servlet-name>
+	<servlet-class>module.BorrarGrupo</servlet-class>
 </servlet>
 <servlet-mapping>
-	<servlet-name>ObtenerDatosQuiz</servlet-name>
-	<url-pattern>/ObtenerDatosQuiz</url-pattern>
+	<servlet-name>BorrarGrupo</servlet-name>
+	<url-pattern>/BorrarGrupo.do</url-pattern>
 </servlet-mapping>
+
 </web-app>
