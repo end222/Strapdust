@@ -22,7 +22,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="ComprobarSeguridadCarteles.do?direccion=x_carteles.jsp"><strong>erios</strong> by HSC</a></h1>
+						<h1><a href="index"><strong>erios</strong> by HSC</a></h1>
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon fa-info-circle">Acerca de</a></li>

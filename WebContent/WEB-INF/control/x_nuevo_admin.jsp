@@ -35,7 +35,7 @@
 
       <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
     
 
@@ -82,7 +82,7 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
             <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
             <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
@@ -136,7 +136,7 @@
 		    <div class="form-group">
 				  <p class="card-footer text-muted">*Debe introducirse un nuevo usuario en cada linea siguiendo el siguiente formato:<br> PID Apellidos Nombre<br> PID2 Apellidos2 Nombre2<br> ...</p>
 				  <p class=" text-muted">Ejemplo:</p>
-			  <textarea class="form-control" placeholder="jamarro Martinez Fernandez Javier" disabled="" rows="3" ></textarea>
+			  <textarea class="form-control" placeholder="jamarro Martinez Fernandez Javier" disabled rows="3" ></textarea>
               </div>
 			  
 			  
@@ -190,7 +190,26 @@
         </div>
       </div>
     </div>
-
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="control/vendor/jquery/jquery.min.js"></script>
     <script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -35,7 +35,7 @@
 
       <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle"><em class="fas fa-bars"></em></button>
 
     
 
@@ -123,14 +123,14 @@
 			
 					<font size="3" color="red">${errorLista}</font>
 			<p></p>
-			
+			  </div>
 			<form id="myform" action="BorrarAdmin.do" method="post">
 			<div class="form-group">
                  <strong>Introduzca administradores a borrar*</strong>
-                <textarea class="form-control" rows="3" name="usuarios"></textarea>
-				  </div>	
+           		 <textarea class="form-control" rows="3" name="usuarios"></textarea>
+			</div>	
 		
-         </div>
+       
 			  <button type="submit" form="myform" class="btn btn-block btn-lg btn btn-danger">Borrar administradores</button>
 			 
 			  <p></p>
@@ -192,7 +192,26 @@
         </div>
       </div>
     </div>
-
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="control/vendor/jquery/jquery.min.js"></script>
     <script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
