@@ -89,7 +89,8 @@
 
           </div>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -139,15 +140,10 @@
 			  <textarea class="form-control" placeholder="jamarro Martinez Fernandez Javier" disabled rows="3" ></textarea>
               </div>
 			  
-			  
-			  
-            
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+	
           </div>
 
-          <p class="small text-center text-muted my-5">
-            <em>More table examples coming soon...</em>
-          </p>
+
 
         </div>
         <!-- /.container-fluid -->
@@ -156,7 +152,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>ecoQuiz</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>

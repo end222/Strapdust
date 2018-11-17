@@ -89,7 +89,8 @@
 
           </div>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -124,19 +125,19 @@
 			<form id="myform" action="CrearGrupo.do" method="post">
 			<p></p>
 		    <div class="form-group">
-                 <strong>Introduzca nombre de grupo</strong>
+                 <strong>Introduzca nombre de grupo*</strong>
               <input class="form-control" name="grupo">
               </div>
 			  
 			  <div class="form-group">
-                 <strong>Introduzca integrantes del grupo*</strong>
+                 <strong>Introduzca integrantes del grupo**</strong>
                 <textarea class="form-control" rows="3" name="usuarios"></textarea>
 				  </div>
 			  <button type="submit" form="myform" class="btn btn-block btn-lg btn-info" >Guardar cambios</button>
 			  <p></p>
 			  </form>
 			  <div class="form-group">
-				  <p class="card-footer text-muted">*Deben introducirse los NIAs de los integrantes separados por espacios o saltos de línea. Ejemplo:</p>
+				  <p class="card-footer text-muted">*El nombre de grupo no puede contener espacios.<br>**Los NIAs de los integrantes deben introducirse  separados por espacios o saltos de línea. Ejemplo:</p>
 				  <input class="form-control" id="disabledInput" placeholder="123456 222222 112233" disabled type="text">
               </div>
 			  
@@ -157,7 +158,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>ecoQuiz</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>

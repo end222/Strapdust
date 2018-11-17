@@ -91,7 +91,8 @@
 
           </div>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -122,6 +123,9 @@
                  <strong>Introduzca grupos a borrar*</strong>
                 <textarea class="form-control" rows="3" name="grupos"></textarea>
 				  </div>
+				  <button type="submit" form="myform" class="btn btn-block btn-lg btn-danger">Borrar grupos</button>
+				 <p></p>
+				  </form>
 			<div class="form-group">
 				  <p class="card-footer text-muted">*Debe introducirse el nombre de los grupos a borrar, separados por espacios o saltos de línea. Ejemplo:<br> grupo1 grupo2 grupo 3<br> grupo4 grupo5</p>
               </div>
@@ -165,17 +169,10 @@
               </div>
             </div>
            </div>
-           
-	<button type="submit" form="myform" class="btn btn-danger">Borrar grupos</button>
-	</form>
-		<p class="text-center text-muted my-5">
-           Se borrarán los grupos seleccionados<br>(los cambios no pueden deshacerse)
-          </p>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
-          <p class="small text-center text-muted my-5">
-            <em>More table examples coming soon...</em>
+          <p class="text-center text-muted my-5">
+           Se borrarán los grupos seleccionados<br>(los cambios no pueden deshacerse)
           </p>
 
         </div>
@@ -185,7 +182,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>

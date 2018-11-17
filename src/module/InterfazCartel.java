@@ -1,10 +1,13 @@
 package module;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import com.mysql.jdbc.Connection;
 
 import Bean.AlumnoBean;
 import jdbc.Cursor;
@@ -73,6 +76,28 @@ public class InterfazCartel {
 				lista.add(elemento);
 			}
 			
+			correcto = lista.size() != 0;
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
+	
+	public static boolean obtenerTodosTituloGrupo(List<TituloGrupo> lista) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM CARTEL, GRUPO WHERE CARTEL.ID = GRUPO.CARTEL")) {
+				String titulo = c.getString("TITULO");
+				String nombreGrupo = c.getString("NOMBRE");
+				TituloGrupo tituloGr = new TituloGrupo(titulo, nombreGrupo);
+				lista.add(tituloGr);
+			}
 			correcto = lista.size() != 0;
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -220,4 +245,27 @@ public class InterfazCartel {
 		System.out.println("Conectado a " + mysql);
 		return mysql;
 	}
+	
+	public static int obtenerNumeroCarteles() {
+		JDBCTemplate mysql = null;
+		int num = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			Connection connection = mysql.getConnection();
+			java.sql.PreparedStatement statement = connection.prepareStatement("select count(*) from CARTEL");
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				num = rs.getInt("count(*)");
+		    }
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return num;
+	}
+	
+	
 }
