@@ -14,27 +14,23 @@ import javax.servlet.http.HttpSession;
 import Bean.AlumnoBean;
 
 
-public class ComprobarSeguridadCarteles extends HttpServlet {
+public class ComprobarSeguridadStatsel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
-			List<CartelGrupoAlumnos> lista = new ArrayList<>();
-			InterfazCartel.obtenerTodosCartelGrupoAlumnos(lista);
-			request.setAttribute("LISTA",lista);
+			List<TituloGrupo> lista = new ArrayList<>();
+			InterfazCartel.obtenerTodosTituloGrupo(lista);
+			request.setAttribute("LISTA_TG",lista);
 			
-			String direccionCorta = request.getParameter("direccion");
-			String direccion = "/WEB-INF/control/" + direccionCorta;
 			HttpSession session = request.getSession();
-			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
-			
-			if((alumno != null && (direccionCorta.substring(0, 1)).equals("a"))
-						|| (admin != null && (direccionCorta.substring(0, 1)).equals("x"))) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
+			if(admin != null){
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_statsel.jsp");
 				dispatcher.forward(request, response);
+				
 			}
 			else {
-				response.sendRedirect("/500.html");
+				response.sendRedirect("login.jsp");
 			}
 		}
 		catch (Throwable Exception) {

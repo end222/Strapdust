@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -89,7 +90,8 @@
 
           </div>
         </li>
-        <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -108,18 +110,38 @@
               <!-- Page Content -->
           <h1>Visualización de estadísticas</h1>
           <hr>
-          <p>Para obtener las estadísticas selecciona un determinado grupo</p>
-<div class="dropdown">
-  <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Selección de grupo
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
+		
+		<!-- DataTables Example -->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fas fa-table"></i>
+              Para obtener las estadísticas seleccione un determinado grupo</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" >
+                  <thead>
+                    <tr>
+					  <th>Grupo - Título de Cartel</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody>
+					<c:forEach items="${LISTA_TG}" var="TituloGrupo">
+						<tr>
+						<td>
+							<a href="ComprobarSeguridad.do?direccion=x_stats.jsp&grupo=${TituloGrupo.grupo}">
+						    <div style="height:100%;width:100%">
+						     	${TituloGrupo.grupo} - "${TituloGrupo.titulo}"
+						    </div>
+							</a>
+					   	</td>
+					    </tr>
+					</c:forEach>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
           
         <!-- /.container-fluid -->
 
@@ -127,7 +149,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>
@@ -148,15 +170,15 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vas a cerrar la sesión</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="CerrarSesion.do?">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="CerrarSesion.do?">Salir</a>
           </div>
         </div>
       </div>
@@ -170,15 +192,16 @@
     <script src="control/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="control/vendor/chart.js/Chart.min.js"></script>
+    <script src="control/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="control/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="control/js/sb-admin.min.js"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="control/js/demo/aciertos.js"></script>
-    <script src="control/js/demo/chart-bar-demo.js"></script>
-    <script src="control/js/demo/chart-pie-demo.js"></script>
+    <script src="control/js/demo/datatables-demo.js"></script>
+    
+    
 
   </body>
 

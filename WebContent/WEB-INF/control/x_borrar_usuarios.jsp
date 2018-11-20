@@ -84,14 +84,15 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
             <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
             <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
 
           </div>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -123,6 +124,9 @@
                  <strong>Introduzca alumnos a borrar*</strong>
                 <textarea class="form-control" rows="3" name="usuarios"></textarea>
 				  </div>
+				  <button type="submit" form="myform" class="btn btn-block btn-lg btn-danger">Borrar alumnos</button>
+				<p></p>
+				</form>
 			
 			<div class="form-group">
 				  <p class="card-footer text-muted">*Deben introducirse los NIAs de los usuarios a borrar, separados por espacios o saltos de línea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
@@ -166,18 +170,11 @@
                 </table>
               </div>
             </div>
-	<button type="submit" form="myform" class="btn btn-lg btn-danger">Borrar alumnos</button>
-	</form>
-		<p class="text-center text-muted my-5">
-           Se borrarán los usuarios seleccionados<br>(los cambios no pueden deshacerse)
-          </p>  
-			 
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
-          <p class="small text-center text-muted my-5">
-            <em>More table examples coming soon...</em>
-          </p>
+          <p class="text-center text-muted my-5">
+           Se borrarán los usuarios seleccionados<br>(los cambios no pueden deshacerse)
+          </p>  
 
         </div>
         <!-- /.container-fluid -->
@@ -186,7 +183,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>
@@ -220,7 +217,26 @@
         </div>
       </div>
     </div>
-
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="control/vendor/jquery/jquery.min.js"></script>
     <script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

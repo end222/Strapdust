@@ -2,6 +2,7 @@ package module;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Properties;
@@ -311,4 +312,26 @@ public class InterfazAlumno {
 		}  
 		return true;  
 	}
+	
+	public static int obtenerNumeroAlumnos() {
+		JDBCTemplate mysql = null;
+		int num = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			Connection connection = mysql.getConnection();
+			java.sql.PreparedStatement statement = connection.prepareStatement("select count(*) from ALUMNO");
+			ResultSet rs = statement.executeQuery();
+			while(rs.next()){
+				num = rs.getInt("count(*)");
+		    }
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return num;
+	}
+	
 }

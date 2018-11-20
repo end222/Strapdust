@@ -41,7 +41,7 @@
 			href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
-			id="sidebarToggle" href="#">
+			id="sidebarToggle" >
 			<em class="fas fa-bars"></em>
 		</button>
 
@@ -101,16 +101,17 @@
 				<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 					<h6 class="dropdown-header">Configuración:</h6>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="forgot-password.html">Cambiar
-						contraseña</a> <a class="dropdown-item active"
+					<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
+						<a class="dropdown-item active"
 						href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
 					<a class="dropdown-item"
 						href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
 
 				</div></li>
+				<li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
 			<li class="nav-item"><a class="nav-link"
-				href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em
+				href="ComprobarSeguridadStatsel.do"> <em
 					class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a></li>
 
 		</ul>
@@ -159,7 +160,7 @@
 						</p>
 						<p class=" text-muted">Ejemplo:</p>
 						<textarea class="form-control"
-							placeholder="123456 Pérez Galbán Rodrigo" disabled="" rows="3"></textarea>
+							placeholder="123456 Pérez Galbán Rodrigo" disabled rows="3"></textarea>
 					</div>
 
 
@@ -180,7 +181,7 @@
 			<footer class="sticky-footer">
 				<div class="container my-auto">
 					<div class="copyright text-center my-auto">
-						<span>ecoQuiz</span>
+						<span>Copyright © Erios 2018</span>
 					</div>
 				</div>
 			</footer>
@@ -219,7 +220,26 @@
 			</div>
 		</div>
 	</div>
-
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
 	<!-- Bootstrap core JavaScript-->
 	<script src="control/vendor/jquery/jquery.min.js"></script>
 	<script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

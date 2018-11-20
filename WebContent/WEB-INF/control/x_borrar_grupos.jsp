@@ -36,7 +36,7 @@
 
       <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
     
 
@@ -84,14 +84,15 @@
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
             <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
             <a class="dropdown-item active" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
 
           </div>
         </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
       
       </ul>
 
@@ -122,6 +123,9 @@
                  <strong>Introduzca grupos a borrar*</strong>
                 <textarea class="form-control" rows="3" name="grupos"></textarea>
 				  </div>
+				  <button type="submit" form="myform" class="btn btn-block btn-lg btn-danger">Borrar grupos</button>
+				 <p></p>
+				  </form>
 			<div class="form-group">
 				  <p class="card-footer text-muted">*Debe introducirse el nombre de los grupos a borrar, separados por espacios o saltos de línea. Ejemplo:<br> grupo1 grupo2 grupo 3<br> grupo4 grupo5</p>
               </div>
@@ -134,7 +138,7 @@
               Tabla de grupos</div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" >
                   <thead>
                     <tr>
 					  <th>Grupo</th>
@@ -164,16 +168,11 @@
                 </table>
               </div>
             </div>
-	<button type="submit" form="myform" class="btn btn-danger">Borrar grupos</button>
-	</form>
-		<p class="text-center text-muted my-5">
-           Se borrarán los grupos seleccionados<br>(los cambios no pueden deshacerse)
-          </p>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+           </div>
           </div>
 
-          <p class="small text-center text-muted my-5">
-            <em>More table examples coming soon...</em>
+          <p class="text-center text-muted my-5">
+           Se borrarán los grupos seleccionados<br>(los cambios no pueden deshacerse)
           </p>
 
         </div>
@@ -183,7 +182,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Your Website 2018</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>
@@ -191,7 +190,7 @@
       </div>
       <!-- /.content-wrapper -->
 
-    </div>
+
     <!-- /#wrapper -->
 
     <!-- Scroll to Top Button-->
@@ -217,7 +216,26 @@
         </div>
       </div>
     </div>
-
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="control/vendor/jquery/jquery.min.js"></script>
     <script src="control/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

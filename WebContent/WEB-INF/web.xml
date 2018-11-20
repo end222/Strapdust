@@ -188,5 +188,20 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>BorrarGrupo</servlet-name>
 	<url-pattern>/BorrarGrupo.do</url-pattern>
 </servlet-mapping>
-
+<servlet>
+	<servlet-name>ObtenerDatosGenerales</servlet-name>
+	<servlet-class>module.ObtenerDatosGenerales</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerDatosGenerales</servlet-name>
+	<url-pattern>/ObtenerDatosGenerales</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ComprobarSeguridadStatsel</servlet-name>
+	<servlet-class>module.ComprobarSeguridadStatsel</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ComprobarSeguridadStatsel</servlet-name>
+	<url-pattern>/ComprobarSeguridadStatsel.do</url-pattern>
+</servlet-mapping>
 </web-app>

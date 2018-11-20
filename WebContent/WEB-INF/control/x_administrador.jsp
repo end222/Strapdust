@@ -28,12 +28,13 @@
 	</head>
 
 	<body id="page-top">
+	<jsp:include page="/ObtenerDatosGenerales" />
 
 		<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
 			<a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
-			<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
+			<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
 
 
@@ -80,7 +81,7 @@
 					<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 						<h6 class="dropdown-header">Configuración:</h6>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+						<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
 
 						<a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
@@ -88,7 +89,8 @@
 
 					</div>
 				</li>
-				<li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+				<li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+				<li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
 
 			</ul>
 
@@ -112,10 +114,10 @@
 									<div class="card-body-icon">
 										<i class="fas fa-fw fa-images"></i>
 									</div>
-									<div class="mr-5">26 Carteles</div>
+									<div class="mr-5">${numCarteles} Carteles</div>
 								</div>
-								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadCarteles.do?direccion=x_carteles.jsp">
-									<span class="float-left">Inicio</span>
+								<a class="card-footer text-white clearfix small z-1" href="index">
+									<span class="float-left">Ver Carteles</span>
 									<span class="float-right">
 										<i class="fas fa-angle-right"></i>
 									</span>
@@ -128,7 +130,7 @@
 									<div class="card-body-icon">
 										<i class="fas fa-fw fa-user"></i>
 									</div>
-									<div class="mr-5">11 Usuarios</div> 
+									<div class="mr-5">${numAlumnos} Usuarios</div> 
 								</div>
 								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
 						</div>
@@ -138,9 +140,19 @@
 									<div class="card-body-icon">
 										<i class="fas fa-fw fa-users"></i>
 									</div>
-									<div class="mr-5">3 Grupos</div>
+									<div class="mr-5">${numGrupos} Grupos</div>
 								</div>
 								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
+						</div>
+						<div class="col-xl-3 col-sm-6 mb-3">
+							<div class="card text-white bg-danger o-hidden h-100">
+								<div class="card-body">
+									<div class="card-body-icon">
+										<i class="fas fa-fw fa-chart-area"></i>
+									</div>
+									<div class="mr-5">Estadísticas</div>
+								</div>
+								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadStatsel.do?"> <span class="float-left">Ver estadísticas</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
 						</div>
 
 					</div>
@@ -152,7 +164,7 @@
 				<footer class="sticky-footer">
 					<div class="container my-auto">
 						<div class="copyright text-center my-auto">
-							<span>ecoQUIZ</span>
+							<span>Copyright © Erios 2018</span>
 						</div>
 					</div>
 				</footer>
@@ -186,6 +198,26 @@
 				</div>
 			</div>
 		</div>
+		<!-- Change Password Modal-->
+		<div class="modal" tabindex="-1" role="dialog" id ="change">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+		      </div>
+		    </div>
+		  </div>
+</div>
 
 		<!-- Bootstrap core JavaScript-->
 		<script src="control/vendor/jquery/jquery.min.js"></script>
