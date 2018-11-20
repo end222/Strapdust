@@ -204,4 +204,36 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ComprobarSeguridadStatsel</servlet-name>
 	<url-pattern>/ComprobarSeguridadStatsel.do</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>ObtenerStats1</servlet-name>
+	<servlet-class>module.ObtenerStats1</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerStats1</servlet-name>
+	<url-pattern>/ObtenerStats1.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ObtenerStats2</servlet-name>
+	<servlet-class>module.ObtenerStats2</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerStats2</servlet-name>
+	<url-pattern>/ObtenerStats2.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ObtenerStats3</servlet-name>
+	<servlet-class>module.ObtenerStats3</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerStats3</servlet-name>
+	<url-pattern>/ObtenerStats3.do</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>ObtenerStats4</servlet-name>
+	<servlet-class>module.ObtenerStats4</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerStats4</servlet-name>
+	<url-pattern>/ObtenerStats4.do</url-pattern>
+</servlet-mapping>
 </web-app>

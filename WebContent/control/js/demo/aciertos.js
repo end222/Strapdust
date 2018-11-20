@@ -2,7 +2,6 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
-
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -11,12 +10,21 @@ function getUrlVars() {
     return vars;
 }
 
-
-
-// Bar Chart Example
-
-var ene =  getUrlVars()["enero"];
-
+var grupo =  getUrlVars()["grupo"];
+$.ajax({
+    url : "ObtenerStats1.do?grupo=" + grupo,
+    async : false,
+    type : 'GET',
+    dataType : 'json', 
+    success : function(response) {
+        //response = $.parseJSON(response);
+        resp = response;
+    },
+    error : function(error) {
+        //error handling....
+        alert(error);
+    }
+})
 
 var ctx = document.getElementById("aciertos");
 var myLineChart = new Chart(ctx, {
@@ -27,7 +35,7 @@ var myLineChart = new Chart(ctx, {
       label: "Pregunta",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [25,30,27],
+      data: [resp[0],resp[1],resp[2]],
     }],
   },
   options: {

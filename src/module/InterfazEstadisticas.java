@@ -39,7 +39,6 @@ public class InterfazEstadisticas {
 	
 	public static void obtenerRespuestasCorrectas(int id, List<Integer> lista) {
 		JDBCTemplate mysql = null;
-		boolean correcto = false;
 		Properties prop = new Properties();
 		int correctas1 = 0;
 		int correctas2 = 0;
@@ -48,17 +47,12 @@ public class InterfazEstadisticas {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
 			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS WHERE CARTEL=\"" + id + "\"")) {
-				int idStats = c.getInteger("ID");
 				int acierto1 = c.getInteger("ACIERTO1");
 				if(acierto1 == 1) correctas1++;
 				int acierto2 = c.getInteger("ACIERTO2");
 				if(acierto2 == 1) correctas2++;
 				int acierto3 = c.getInteger("ACIERTO3");
 				if(acierto3 == 1) correctas3++;
-				int edad = c.getInteger("EDAD");
-				int unizar = c.getInteger("UNIZAR");
-				int cartel = c.getInteger("CARTEL");
-				String opinion = c.getString("OPINION");
 			}
 			lista.add(correctas1);
 			lista.add(correctas2);
@@ -69,7 +63,69 @@ public class InterfazEstadisticas {
 			if (mysql != null) mysql.disconnect();
 		}
 	}
+	public static void obtenerEdades(int id, List<Integer> lista) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		for(int i = 0; i<6; i++){
+			lista.add(0);
+		}
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS WHERE CARTEL=\"" + id + "\"")) {
+				int edad = c.getInteger("EDAD");
+				if(edad != 0){
+					lista.set(edad-1, lista.get(edad-1)+1);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
+	public static void obtenerUnizar(int id, List<Integer> lista) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		for(int i = 0; i<4; i++){
+			lista.add(0);
+		}
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS WHERE CARTEL=\"" + id + "\"")) {
+				int unizar = c.getInteger("UNIZAR");
+				if(unizar != 0){
+					lista.set(unizar-1, lista.get(unizar-1)+1);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
 	
+	public static void obtenerRespuestas(int id, List<String> lista) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ESTADISTICAS WHERE CARTEL=\"" + id + "\"")) {
+				int unizar = c.getInteger("UNIZAR");
+				String respuesta = c.getString("OPINION");
+				if(unizar != 0){
+					lista.add(respuesta);
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+	}
+
 	public static Estadisticas obtenerEstadisticas(int ID) {
 		JDBCTemplate mysql = null;
 		Properties prop = new Properties();

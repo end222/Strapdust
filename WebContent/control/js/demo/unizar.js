@@ -2,6 +2,30 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+var grupo =  getUrlVars()["grupo"];
+$.ajax({
+    url : "ObtenerStats3.do?grupo=" + grupo,
+    async : false,
+    type : 'GET',
+    dataType : 'json', 
+    success : function(response) {
+        //response = $.parseJSON(response);
+        resp = response;
+    },
+    error : function(error) {
+        //error handling....
+        alert(error);
+    }
+})
+
 // Pie Chart Example
 var ctx = document.getElementById("unizar");
 var myPieChart = new Chart(ctx, {
@@ -9,7 +33,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["No pertenece a la Universidad de Zaragoza", "Trabaja en la Universidad de Zaragoza", "Estudia en la EINA", "No estudia en la EINA pero si en Unizar"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
+      data: [resp[0], resp[1], resp[2], resp[3]],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },

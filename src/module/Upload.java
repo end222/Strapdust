@@ -33,7 +33,8 @@ public class Upload extends HttpServlet {
 	    if(!filePart.getSubmittedFileName().equals("")) {
 		    InputStream fileContent = filePart.getInputStream();
 		    String fileName = String.valueOf(idCartel) + ".png"; // MSIE fix.
-		    File file = new File("/home/pablo/Java-EE/Workspace/Sistemas/WebContent/images", fileName);
+		    String absolutePath = getServletContext().getRealPath("/images");
+		    File file = new File(absolutePath, fileName);
 		    if(file.exists()) file.delete();
 		    Files.copy(fileContent, file.toPath());
 	    }

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +31,6 @@
   </head>
 
   <body id="page-top">
-  	<jsp:include page="/ObtenerStats4.do" />
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
@@ -157,17 +155,180 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+                  <thead>
                     <tr>
-                      <th>Respuesta</th>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
                     </tr>
                   </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </tfoot>
                   <tbody>
-	                  <c:forEach items="${lista}" var="respuesta">
-		                  <tr>
-		                      <td>${respuesta}</td>
-		                  </tr>
-					  </c:forEach>
+                    <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>$320,800</td>
+                    </tr>
+                    <tr>
+                      <td>Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011/07/25</td>
+                      <td>$170,750</td>
+                    </tr>
+                    <tr>
+                      <td>Ashton Cox</td>
+                      <td>Junior Technical Author</td>
+                      <td>San Francisco</td>
+                      <td>66</td>
+                      <td>2009/01/12</td>
+                      <td>$86,000</td>
+                    </tr>
+                    <tr>
+                      <td>Cedric Kelly</td>
+                      <td>Senior Javascript Developer</td>
+                      <td>Edinburgh</td>
+                      <td>22</td>
+                      <td>2012/03/29</td>
+                      <td>$433,060</td>
+                    </tr>
+                    <tr>
+                      <td>Airi Satou</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>33</td>
+                      <td>2008/11/28</td>
+                      <td>$162,700</td>
+                    </tr>
+                    <tr>
+                      <td>Brielle Williamson</td>
+                      <td>Integration Specialist</td>
+                      <td>New York</td>
+                      <td>61</td>
+                      <td>2012/12/02</td>
+                      <td>$372,000</td>
+                    </tr>
+                    <tr>
+                      <td>Herrod Chandler</td>
+                      <td>Sales Assistant</td>
+                      <td>San Francisco</td>
+                      <td>59</td>
+                      <td>2012/08/06</td>
+                      <td>$137,500</td>
+                    </tr>
+                    <tr>
+                      <td>Rhona Davidson</td>
+                      <td>Integration Specialist</td>
+                      <td>Tokyo</td>
+                      <td>55</td>
+                      <td>2010/10/14</td>
+                      <td>$327,900</td>
+                    </tr>
+                    <tr>
+                      <td>Timothy Mooney</td>
+                      <td>Office Manager</td>
+                      <td>London</td>
+                      <td>37</td>
+                      <td>2008/12/11</td>
+                      <td>$136,200</td>
+                    </tr>
+                    <tr>
+                      <td>Jackson Bradshaw</td>
+                      <td>Director</td>
+                      <td>New York</td>
+                      <td>65</td>
+                      <td>2008/09/26</td>
+                      <td>$645,750</td>
+                    </tr>
+                    <tr>
+                      <td>Olivia Liang</td>
+                      <td>Support Engineer</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2011/02/03</td>
+                      <td>$234,500</td>
+                    </tr>
+                    <tr>
+                      <td>Bruno Nash</td>
+                      <td>Software Engineer</td>
+                      <td>London</td>
+                      <td>38</td>
+                      <td>2011/05/03</td>
+                      <td>$163,500</td>
+                    </tr>
+                    <tr>
+                      <td>Sakura Yamamoto</td>
+                      <td>Support Engineer</td>
+                      <td>Tokyo</td>
+                      <td>37</td>
+                      <td>2009/08/19</td>
+                      <td>$139,575</td>
+                    </tr>
+                    <tr>
+                      <td>Thor Walton</td>
+                      <td>Developer</td>
+                      <td>New York</td>
+                      <td>61</td>
+                      <td>2013/08/11</td>
+                      <td>$98,540</td>
+                    </tr>
+                    <tr>
+                      <td>Finn Camacho</td>
+                      <td>Support Engineer</td>
+                      <td>San Francisco</td>
+                      <td>47</td>
+                      <td>2009/07/07</td>
+                      <td>$87,500</td>
+                    </tr>
+                    <tr>
+                      <td>Serge Baldwin</td>
+                      <td>Data Coordinator</td>
+                      <td>Singapore</td>
+                      <td>64</td>
+                      <td>2012/04/09</td>
+                      <td>$138,575</td>
+                    </tr>
+                    <tr>
+                      <td>Zenaida Frank</td>
+                      <td>Software Engineer</td>
+                      <td>New York</td>
+                      <td>63</td>
+                      <td>2010/01/04</td>
+                      <td>$125,250</td>
+                    </tr>
+                    <tr>
+                      <td>Zorita Serrano</td>
+                      <td>Software Engineer</td>
+                      <td>San Francisco</td>
+                      <td>56</td>
+                      <td>2012/06/01</td>
+                      <td>$115,000</td>
+                    </tr>
+                  
+                    <tr>
+                      <td>Donna Snider</td>
+                      <td>Customer Support</td>
+                      <td>New York</td>
+                      <td>27</td>
+                      <td>2011/01/25</td>
+                      <td>$112,000</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
