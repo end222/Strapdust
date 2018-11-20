@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -22,9 +23,9 @@
 <link href="control/css/sb-admin.css" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body id="page-top" class="sidebar-toggled">
 <jsp:include page="/ObtenerDatosQuiz" />
-<nav class="navbar navbar-expand navbar-dark bg-dark static-top"> <a class="navbar-brand mr-1" href="index.html">Alumno</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top"> <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=/a_alumno.jsp">Alumno</a>
   <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
   
   <!-- Navbar -->
@@ -49,8 +50,8 @@
 <div id="wrapper"> 
   
   <!-- Sidebar -->
-  <ul class="sidebar navbar-nav">
-    <li class="nav-item"> <a class="nav-link" href="alumno.html"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+  <ul class="sidebar navbar-nav toggled">
+    <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno.jsp"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
     <li class="nav-item active"> <a class="nav-link" href="upload.html"> <i class="fas fa-fw fa-image"></i> <span>Cartel</span></a> </li>
   </ul>
   <div id="content-wrapper">
@@ -182,15 +183,8 @@
                         <input class="form-control" name="reto" value="${Cartel.reto}" required>
                         </input>
                       </div>
-                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
-                          <input type="radio" name="options" id="option1" autocomplete="off" checked>
-                          Privado </label>
-                        <label class="btn btn-secondary">
-                          <input type="radio" name="options" id="option2" autocomplete="off">
-                          Público </label>
-                      </div>
-                      <button type="submit" class="btn btn-info">Guardar cambios</button>
+                      
+                      <button type="submit" ${np} class="btn btn-info">Guardar cambios</button>
                     </form>
                     <p></p>
                   </div>
@@ -210,14 +204,14 @@
         <!-- /.container-fluid --> 
         
         <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto"> <span>ecoQUIZ</span> </div>
-          </div>
-        </footer>
+
       </div>
       <!-- /.content-wrapper --> 
-      
+              <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto"> <span>Copyright © Erios 2018</span> </div>
+          </div>
+        </footer>
     </div>
   </div>
 </div>
@@ -238,7 +232,7 @@
       <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="../access/login.html">Salir</a> </div>
+        <a class="btn btn-primary" href="CerrarSesion.do">Salir</a> </div>
     </div>
   </div>
 </div>

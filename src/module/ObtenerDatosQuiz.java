@@ -24,9 +24,24 @@ public class ObtenerDatosQuiz extends HttpServlet {
 	    Cartel cartel = new Cartel();
 		List<Pregunta> lista = new ArrayList<>();
 	    InterfazCartel.obtenerCartelByGrupo(grupo, cartel, lista);
-		preg1 = lista.get(0);
-		preg2 = lista.get(1);
-		preg3 = lista.get(2);
+	    if (lista.size() >= 1) {
+	    	preg1 = lista.get(0);
+	    }
+	    else {
+	    	preg1 = new Pregunta();
+	    }
+	    if (lista.size() >= 2) {
+	    	preg2 = lista.get(1);
+	    }
+	    else {
+	    	preg1 = new Pregunta();
+	    }
+	    if (lista.size() == 3) {
+	    	preg3 = lista.get(2);
+	    }
+	    else {
+	    	preg1 = new Pregunta();
+	    }
 	    request.setAttribute("Cartel", cartel);
 	    request.setAttribute("Preg1", preg1);
 	    request.setAttribute("Preg2", preg2);

@@ -30,7 +30,7 @@
   </head>
 
   	
-  <body id="page-top">
+  <body id="page-top" class= "sidebar-toggled">
   	<jsp:include page="/ObtenerAlumnoInfo" />
   	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="session" />
 
@@ -148,7 +148,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>ecoQuest</span>
+              <span>Copyright © Erios 2018</span>
             </div>
           </div>
         </footer>

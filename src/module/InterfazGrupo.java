@@ -74,20 +74,13 @@ public class InterfazGrupo {
 	public static boolean anyadirGrupo(Grupo gr) {
 		JDBCTemplate mysql = null;
 		boolean correcto = false;
-		String nombre = "";
 		Properties prop = new Properties();
 		try {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
-			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM GRUPO WHERE NOMBRE='" + gr.verNombre() + "'")) {
-				nombre = c.getString("NOMBRE");
-			}
-			if (nombre.equals("")) correcto = true; // No se ha encontrado el grupo en la base de datos
-			if (correcto) {
-				mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
-				mysql.executeSentence("REPLACE INTO GRUPO(NOMBRE, CARTEL) VALUES (?,?)",gr.verNombre(), gr.verCartel());
-				mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 1");
-			}
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
+			mysql.executeSentence("REPLACE INTO GRUPO(NOMBRE, CARTEL) VALUES (?,?)",gr.verNombre(), gr.verCartel());
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 1");
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		} finally {
