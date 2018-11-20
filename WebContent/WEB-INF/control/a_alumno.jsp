@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,6 +31,7 @@
 
   	
   <body id="page-top">
+  	<jsp:include page="/ObtenerAlumnoInfo" />
   	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="session" />
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -79,7 +81,7 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item  active"> <a class="nav-link" href="alumno.html"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+        <li class="nav-item  active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno.jsp"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
         <li class="nav-item">
           <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_upload.jsp">
             <i class="fas fa-fw fa-image"></i>
@@ -122,6 +124,14 @@
 					Formas parte del grupo: <jsp:getProperty property="grupo" name="AlumnoBean"/>
 					<br>
 					Los integrantes de ese grupo son:
+					
+
+                   		<c:forEach items="${GR_AL.getLista()}" var="Alumno">
+							<br>&nbsp&nbsp${Alumno.getNIA()} - ${Alumno.getNombre()}
+						</c:forEach>
+				
+									
+					
 				</address>
             </div>
 				<a class="btn btn-secondary btn-block"  data-toggle="modal" data-target="#change" >Cambiar contraseña</a>

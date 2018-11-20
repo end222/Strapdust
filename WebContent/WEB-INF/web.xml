@@ -197,6 +197,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<url-pattern>/ObtenerDatosGenerales</url-pattern>
 </servlet-mapping>
 <servlet>
+	<servlet-name>ObtenerAlumnoInfo</servlet-name>
+	<servlet-class>module.ObtenerAlumnoInfo</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ObtenerAlumnoInfo</servlet-name>
+	<url-pattern>/ObtenerAlumnoInfo</url-pattern>
+</servlet-mapping>
+<servlet>
 	<servlet-name>ComprobarSeguridadStatsel</servlet-name>
 	<servlet-class>module.ComprobarSeguridadStatsel</servlet-class>
 </servlet>

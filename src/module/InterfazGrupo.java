@@ -45,6 +45,31 @@ public class InterfazGrupo {
 		return correcto;
 	}
 	
+	public static GrupoAlumnos obtenerGrupoAlumnos(String nombreGrupo, int NIApropio) {
+		JDBCTemplate mysql = null;
+		Properties prop = new Properties();
+		GrupoAlumnos grAl = null;
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			List<AlumnoBean> listaAlumnos = new ArrayList<>();
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE GRUPO_NOMBRE='" + nombreGrupo + "'")) {
+				String nombreAlumno = c.getString("NOMBRE");
+				int nia = c.getInteger("NIA");
+				Timestamp fecha = c.getTimestamp("FECHA_INGRESO");
+				String grupo = c.getString("GRUPO_NOMBRE");
+				AlumnoBean al = new AlumnoBean(nombreAlumno, nia, fecha, grupo);
+				listaAlumnos.add(al);
+			}
+			grAl = new GrupoAlumnos(nombreGrupo, listaAlumnos);
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return grAl;
+	}
+	
 	
 	public static boolean anyadirGrupo(Grupo gr) {
 		JDBCTemplate mysql = null;
