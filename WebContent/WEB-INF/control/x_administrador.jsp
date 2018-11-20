@@ -27,7 +27,7 @@
 
 	</head>
 
-	<body id="page-top">
+	<body id="page-top" class="sidebar-toggled">
 	<jsp:include page="/ObtenerDatosGenerales" />
 
 		<nav class="navbar navbar-expand navbar-dark bg-dark static-top">

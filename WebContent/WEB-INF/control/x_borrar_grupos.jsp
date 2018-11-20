@@ -30,7 +30,7 @@
 
   </head>
 
-   <body id="page-top">
+   <body id="page-top" class="sidebar-toggled">
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -78,7 +78,7 @@
     <div id="wrapper">
 
        <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+      <ul class="sidebar navbar-nav toggled">
         <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
