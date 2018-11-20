@@ -29,7 +29,7 @@
   </head>
 
   	
-  <body id="page-top" class="sidebar-toggled">
+  <body id="page-top">
   	<jsp:useBean id="AlumnoBean" class="Bean.AlumnoBean" scope="session" />
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
@@ -79,7 +79,7 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item  active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno.jsp"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+        <li class="nav-item  active"> <a class="nav-link" href="alumno.html"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
         <li class="nav-item">
           <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_upload.jsp">
             <i class="fas fa-fw fa-image"></i>
@@ -101,7 +101,7 @@
 <!-- Page Content -->
           <h1>Hola <jsp:getProperty property="nombre" name="AlumnoBean"/></h1>
           <hr>
-          <font size="3" color="pink">${errorMessage}</font>
+          
 			<div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-users"></i>

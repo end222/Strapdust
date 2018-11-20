@@ -33,7 +33,7 @@
 
 </head>
 
-<body id="page-top" class="sidebar-toggled">
+<body id="page-top">
 
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
@@ -88,7 +88,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<ul class="sidebar navbar-nav toggled">
+		<ul class="sidebar navbar-nav">
 			<li class="nav-item dropdown"><a class="nav-link"
 				href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em
 					class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span>
