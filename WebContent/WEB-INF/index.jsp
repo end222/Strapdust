@@ -56,39 +56,14 @@
 								<section>
 									<h2>Síguenos en...</h2>
 									<ul class="icons">
-										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/end222" class="icon fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://github.com/aeri" class="icon fa-github"><span class="label">GitHub</span></a></li>
+										<li><a href="https://github.com/vpec" class="icon fa-github"><span class="label">GitHub</span></a></li>
 									</ul>
 								</section>
 								<p class="copyright">
 									&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
 								</p>
-							</div>
-							<div>
-								<section>
-									<h2>Contacta con nosotros</h2>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<input type="text" name="name" id="name" placeholder="Nombre" />
-											</div>
-											<div class="field half">
-												<input type="text" name="email" id="email" placeholder="Correo Electrónico" />
-											</div>
-											<div class="field">
-												<textarea name="message" id="message" rows="4" placeholder="Mensaje"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Enviar" class="primary" /></li>
-											<li><input type="reset" value="Resetear" /></li>
-										</ul>
-									</form>
-								</section>
 							</div>
 						</div>
 					</footer>
