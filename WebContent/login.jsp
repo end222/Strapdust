@@ -67,10 +67,11 @@
 					</div>
 					<p></p>
 					<div class="w-full text-center p-t-20 ">
-						<a href="../WEB-INF/control/forgot-password.html" class="txt2">
+						<a href="#" class="txt2" data-toggle="tooltip" title="Si eres un alumno ponte en contacto con el profesorado para restablecer la cuenta. Administradores pueden restablecer la contraseña en el apartado de registro.">
 							He olvidado la contraseña
 						</a>
 					</div>
+					
 
 					<div class="w-full text-center p-t-27 p-b-239">
 						<span class="txt1">

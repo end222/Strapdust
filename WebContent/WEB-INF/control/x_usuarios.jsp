@@ -130,7 +130,7 @@
 					  <th>NIA</th>
                       <th>Nombre</th>
                       <th>Grupo</th>					  
-                      <th>Fecha de registro</th>
+                      <th>Fecha</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -138,7 +138,7 @@
 					  <th>NIA</th>
                       <th>Nombre</th>
 					  <th>Grupo</th>
-                      <th>Fecha de registro</th>
+                      <th>Fecha</th>
                     </tr>
                   </tfoot>
                   <tbody>

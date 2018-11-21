@@ -136,7 +136,7 @@
             </div>
 				<a class="btn btn-secondary btn-block"  data-toggle="modal" data-target="#change" >Cambiar contraseña</a>
 				<p></p>
-				 <button type="button" class="btn btn-danger">Solicitar baja</button>
+				 <button type="button" data-toggle="modal" data-target="#borrar" class="btn btn-warning">⚠ Solicitar baja</button>
            
           </div>
           
@@ -198,6 +198,27 @@
       </div>
       <div class="modal-footer">
         <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal borrar usuario -->
+    <div class="modal" tabindex="-1" role="dialog" id ="borrar">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">⚠ ¡VAS A BORRAR TU CUENTA! </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Tu cuenta va a ser eliminada de forma definitiva y no podrá ser recuperada. ¡¿Estas seguro?!</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-danger" href="RegistrarUsuario.do?">Borrar cuenta</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
