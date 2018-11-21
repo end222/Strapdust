@@ -244,4 +244,12 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet-name>ObtenerStats4</servlet-name>
 	<url-pattern>/ObtenerStats4.do</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>SolicitarBaja</servlet-name>
+	<servlet-class>module.SolicitarBaja</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>SolicitarBaja</servlet-name>
+	<url-pattern>/SolicitarBaja.do</url-pattern>
+</servlet-mapping>
 </web-app>

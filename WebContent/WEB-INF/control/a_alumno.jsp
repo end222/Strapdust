@@ -218,7 +218,7 @@
         <p>Tu cuenta va a ser eliminada de forma definitiva y no podrá ser recuperada. ¡¿Estas seguro?!</p>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-danger" href="RegistrarUsuario.do?">Borrar cuenta</a>
+        <a class="btn btn-danger" href="SolicitarBaja.do">Borrar cuenta</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
