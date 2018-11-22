@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Estadísticas</title>
+    <title>EstadÃ­sticas</title>
 	  
 	  <link rel="icon" type="image/png" href="favicon.ico"/>
 
@@ -33,7 +33,7 @@
   <body id="page-top" class="sidebar-toggled">
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">AdministraciÃ³n</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
 
@@ -66,7 +66,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesión</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesiÃ³n</a>
           </div>
         </li>
       </ul>
@@ -78,11 +78,11 @@
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
         <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>ConfiguraciÃ³n</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Configuración:</h6>
+            <h6 class="dropdown-header">ConfiguraciÃ³n:</h6>
 			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseÃ±a</a>
 			  
             <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
@@ -91,7 +91,7 @@
           </div>
         </li>
         <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
-        <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>EstadÃ­sticas</span></a> </li>
       
       </ul>
 
@@ -102,26 +102,26 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Estadísticas</a>
+              <a href="#">EstadÃ­sticas</a>
             </li>
-            <li class="breadcrumb-item active">Gráficas</li>
+            <li class="breadcrumb-item active">GrÃ¡ficas</li>
           </ol>
 
               <!-- Page Content -->
-          <h1>Visualización de estadísticas</h1>
+          <h1>VisualizaciÃ³n de estadÃ­sticas</h1>
           <hr>
 		
 		<!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Para obtener las estadísticas seleccione un determinado grupo</div>
+              Para obtener las estadÃ­sticas seleccione un determinado grupo</div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" >
                   <thead>
                     <tr>
-					  <th>Grupo - Título de Cartel</th>
+					  <th>Grupo - TÃ­tulo de Cartel</th>
                     </tr>
                   </thead>
                   
@@ -149,7 +149,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Erios 2018</span>
+              <span>Copyright Â© Erios 2018</span>
             </div>
           </div>
         </footer>
@@ -170,12 +170,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Vas a cerrar la sesión</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vas a cerrar la sesiÃ³n</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã—</span>
             </button>
           </div>
-          <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
+          <div class="modal-body">Seleciona salir si deseas finalizar la sesiÃ³n.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
             <a class="btn btn-primary" href="CerrarSesion.do?">Salir</a>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">AdministraciÃ³n</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle"><em class="fas fa-bars"></em></button>
 
@@ -66,7 +66,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesión</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Cerrar sesiÃ³n</a>
           </div>
         </li>
       </ul>
@@ -79,11 +79,11 @@
        <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
         <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
+        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>ConfiguraciÃ³n</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Configuración:</h6>
+            <h6 class="dropdown-header">ConfiguraciÃ³n:</h6>
 			  		<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
+			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseÃ±a</a>
             <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
 
             <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
@@ -91,7 +91,7 @@
           </div>
         </li>
         <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
-        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>EstadÃ­sticas</span></a> </li>
       
       </ul>
 
@@ -102,7 +102,7 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Configuración</a>
+              <a href="#">ConfiguraciÃ³n</a>
             </li>
 		<li class="breadcrumb-item">
 			<a href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
@@ -112,10 +112,10 @@
           <!-- DataTables Example -->
 			<div class="form-group">
 			<div class="alert alert-warning" role="alert">
-			  ATENCIÓN - Está a punto de borrar usuarios con privilegios de administrador
+			  ATENCIÃ“N - EstÃ¡ a punto de borrar usuarios con privilegios de administrador
 			</div>
 	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridadTabla.do?direccion=x_borrar_usuarios.jsp" role="alert">
-	  Para borrar alumnos haga click aquí
+	  Para borrar alumnos haga click aquÃ­
 	</a></div>
 	
 					<font size="3" color="green">${successMessage}</font>
@@ -137,12 +137,12 @@
 			  <p></p>
 			  </form>
 			  <div class="form-group">
-				  <p class="card-footer text-muted">*Deben introducirse los PIDs de los usuarios a borrar, separados por espacios o saltos de línea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
+				  <p class="card-footer text-muted">*Deben introducirse los PIDs de los usuarios a borrar, separados por espacios o saltos de lÃ­nea. Ejemplo:<br> 123456 222888 121212<br> 987654 789123</p>
               </div>
 		    <div class="form-group">
 	
 		<p class="text-center text-muted my-5">
-           Se borrarán los usuarios seleccionados<br>(los cambios no pueden deshacerse)
+           Se borrarÃ¡n los usuarios seleccionados<br>(los cambios no pueden deshacerse)
           </p>  
 			 
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -159,7 +159,7 @@
         <footer class="sticky-footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright © Erios 2018</span>
+              <span>Copyright Â© Erios 2018</span>
             </div>
           </div>
         </footer>
@@ -180,12 +180,12 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Vas a cerrar la sesión</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vas a cerrar la sesiÃ³n</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
+              <span aria-hidden="true">Ã—</span>
             </button>
           </div>
-          <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
+          <div class="modal-body">Seleciona salir si deseas finalizar la sesiÃ³n.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
             <a class="btn btn-primary" href="CerrarSesion.do?">Salir</a>
@@ -198,13 +198,13 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title">Cambiar la contraseña</h5>
+		        <h5 class="modal-title">Cambiar la contraseÃ±a</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <p>Se va a envíar un mensaje de confirmación a tu correo de la unviersidad para procesar el cambio.</p>
+		        <p>Se va a envÃ­ar un mensaje de confirmaciÃ³n a tu correo de la unviersidad para procesar el cambio.</p>
 		      </div>
 		      <div class="modal-footer">
 		        <a class="btn btn-primary" href="RegistrarUsuario.do?">Aceptar</a>
