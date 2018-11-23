@@ -210,8 +210,8 @@
           </div>
           <div class="modal-body">Seleciona salir si deseas finalizar la sesión.</div>
           <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="CerrarSesion.do?">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="CerrarSesion.do?">Salir</a>
           </div>
         </div>
       </div>
