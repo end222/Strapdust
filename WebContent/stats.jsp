@@ -61,7 +61,7 @@
 											</div>
 											<div class="form-group">
 											    <strong>${pregunta}</strong>
-											    <textarea class="form-control" name="respuesta" placeholder="Escribe tu respuesta" rows="3"></textarea>
+											    <textarea class="form-control" name="respuesta" placeholder="Escribe tu respuesta" rows="3" required></textarea>
 											</div> 
 										</div>
 										<div class="form-group">
@@ -79,8 +79,8 @@
 										</div>
 										<div class="form-group">
 											<h4>Rango de edad:</h4>
-											<select class="custom-select" name="edad">
-												<option selected>Seleccionar</option>
+											<select required class="custom-select" name="edad">
+												<option value="">Seleccionar</option>
 												<option value="1">Menor de 18</option>
 												<option value="2">De 18 a 25</option>
 												<option value="3">De 26 a 39</option>
@@ -91,8 +91,8 @@
 										</div>
 										<div class="form-group">
 											<h4>¿Pertenece a la Universidad de Zaragoza?</h4>
-											<select class="custom-select" name="uni">
-												<option selected>Seleccionar</option>
+											<select class="custom-select" name="uni" required>
+												<option value="">Seleccionar</option>
 												<option value="1">No</option>
 												<option value="2">Sí, trabajo en la Universidad de Zaragoza</option>
 												<option value="3">Sí, estudio en la Universidad de Zaragoza, 													concretamente en la EINA</option>

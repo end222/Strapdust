@@ -73,7 +73,7 @@ public class RegistrarUsuario extends HttpServlet{
 							//Token insertado satisfactoriamente en la tabla de tokens
 							String correo = NIA + "@unizar.es";
 							
-							String web = "http://localhost:8080/Sistemas/ComprobarToken.html?license=user&token=";
+							String web = "http://35.187.114.218/ComprobarToken.html?license=user&token=";
 							String msg = web+token;
 							//Enviamos el mensaje al usuario
 							Mailer.send(correo, "Token de registro", msg);
@@ -111,7 +111,7 @@ public class RegistrarUsuario extends HttpServlet{
 						//Token insertado satisfactoriamente en la tabla de administradores
 						String correo = PDI + "@unizar.es";
 						
-						String web = "http://localhost:8080/Sistemas/ComprobarToken.html?license=admin&token=";
+						String web = "http://35.187.114.218/ComprobarToken.html?license=admin&token=";
 						String msg = web+token;
 						//Enviamos el mensaje al profesor
 						Mailer.send(correo, "Token de registro", msg);
@@ -153,7 +153,7 @@ public class RegistrarUsuario extends HttpServlet{
 				if (InterfazAlumno.anyadirToken(NIA, token)) {
 					//Token insertado satisfactoriamente en la tabla de tokens
 					String correo = NIA + "@unizar.es";
-					String web = "http://localhost:8080/Sistemas/ComprobarToken.html?license=user&token=";
+					String web = "http://35.187.114.218/ComprobarToken.html?license=user&token=";
 					String msg = web+token;
 					//Enviamos el mensaje al usuario
 					Mailer.send(correo, "Token de registro", msg);
@@ -167,7 +167,7 @@ public class RegistrarUsuario extends HttpServlet{
 				if (InterfazAdministrador.anyadirToken(PDI, token)) {
 					//Token insertado satisfactoriamente en la tabla de tokens
 					String correo = PDI + "@unizar.es";
-					String web = "http://localhost:8080/Sistemas/ComprobarToken.html?license=admin&token=";
+					String web = "http://35.187.114.218/ComprobarToken.html?license=admin&token=";
 					String msg = web+token;
 					//Enviamos el mensaje al usuario
 					Mailer.send(correo, "Token de registro", msg);

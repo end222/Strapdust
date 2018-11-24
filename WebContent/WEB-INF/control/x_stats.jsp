@@ -37,7 +37,7 @@
 
       <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
 
-      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
+      <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
     
 
@@ -92,8 +92,9 @@
 
           </div>
         </li>
-        <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_stats.jsp"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
-      
+        <li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
+		<li class="nav-item"> <a class="nav-link" href="ComprobarSeguridadStatsel.do"> <em class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a> </li>
+
       </ul>
 
       <div id="content-wrapper">
@@ -103,7 +104,7 @@
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="#">Estadísticas</a>
+              <a href="ComprobarSeguridadStatsel.do">Estadísticas</a>
             </li>
             <li class="breadcrumb-item active">Gráficas</li>
           </ol>
@@ -156,7 +157,7 @@
               Tabla de respuestas</div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable">
                 <thead>
                     <tr>
                       <th>Respuesta</th>

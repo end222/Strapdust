@@ -110,8 +110,7 @@
 
 				</div></li>
 				<li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
-			<li class="nav-item"><a class="nav-link"
-				href="ComprobarSeguridadStatsel.do"> <em
+				<li class="nav-item"><a class="nav-link"  href="ComprobarSeguridadStatsel.do"> <em
 					class="fas fa-fw fa-chart-area"></em> <span>Estadísticas</span></a></li>
 
 		</ul>

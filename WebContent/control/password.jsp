@@ -33,7 +33,7 @@
         <div class="card-body">
           <div class="text-center mb-4">
             <h4>Reestablecer contraseña</h4>
-            <p>Introduce una nueva contraseña para tu cuenta en ecoQUIZ.</p>
+            <p>Introduce una nueva contraseña para tu cuenta en Erios.</p>
             <font size="3" color="red">${errorMessage}</font>
           </div>
           <form method="post" action="ComprobarToken.html">
