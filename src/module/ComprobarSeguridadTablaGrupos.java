@@ -34,7 +34,7 @@ public class ComprobarSeguridadTablaGrupos extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			else {
-				response.sendRedirect("/500.html");
+				response.sendRedirect("500.html");
 			}
 		}
 		catch (Throwable Exception) {

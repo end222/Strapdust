@@ -22,11 +22,25 @@ public class ComprobarSeguridad extends HttpServlet {
 			HttpSession session = request.getSession();
 			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
-			if((alumno != null && (direccionCorta.substring(0, 1)).equals("a"))
-				|| (admin != null && (direccionCorta.substring(0, 1)).equals("x"))) {
-					
+			if(alumno != null && (direccionCorta.substring(0, 1)).equals("a")) {
+				if(!InterfazAlumno.existeAlumno(alumno.getNIA())) {
+					request.getSession().invalidate();
+					response.sendRedirect("index");
+				}
+				else {
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
 					dispatcher.forward(request, response);
+				}
+			}
+			else if(admin != null && (direccionCorta.substring(0, 1)).equals("x")) {
+				if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+					request.getSession().invalidate();
+					response.sendRedirect("index");
+				}
+				else {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(direccion);
+					dispatcher.forward(request, response);
+				}
 			}
 			else {
 				response.sendRedirect("index");

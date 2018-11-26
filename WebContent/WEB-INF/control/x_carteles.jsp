@@ -26,7 +26,7 @@
 						<nav>
 							<ul>
 								<li><a href="#footer" class="icon fa-info-circle">Acerca de</a></li>
-								<li><a href="ComprobarSesion.do"> Panel de administrador</a></li>
+								<li><a href="ComprobarSesion.do">Panel</a></li>
 							</ul>
 						</nav>
 					</header>

@@ -2,6 +2,7 @@ package module;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -65,8 +66,14 @@ public class BorrarAdmin extends HttpServlet{
 			HttpSession session = request.getSession();
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if(admin != null){
+					if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+						request.getSession().invalidate();
+						response.sendRedirect("login.jsp");
+					}
+					else {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_borrar_admin.jsp");
 						dispatcher.forward(request, response);
+					}
 				}
 			else {
 				response.sendRedirect("login.jsp");

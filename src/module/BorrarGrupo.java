@@ -63,8 +63,14 @@ public class BorrarGrupo extends HttpServlet{
 			HttpSession session = request.getSession();
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if(admin != null){
+					if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+						request.getSession().invalidate();
+						response.sendRedirect("login.jsp");
+					}
+					else {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_borrar_grupos.jsp");
 						dispatcher.forward(request, response);
+					}
 				}
 			else {
 				response.sendRedirect("login.jsp");

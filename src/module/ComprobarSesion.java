@@ -22,12 +22,24 @@ public class ComprobarSesion extends HttpServlet {
 				response.sendRedirect("login.jsp");
 			}
 			else if(alumno != null) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/a_alumno.jsp");
-				dispatcher.forward(request, response);
+				if(!InterfazAlumno.existeAlumno(alumno.getNIA())) {
+					request.getSession().invalidate();
+					response.sendRedirect("login.jsp");
+				}
+				else {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/a_alumno.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_administrador.jsp");
-				dispatcher.forward(request, response);
+				if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+					request.getSession().invalidate();
+					response.sendRedirect("login.jsp");
+				}
+				else {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_administrador.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 		}
 		catch (Throwable Exception) {

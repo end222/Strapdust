@@ -25,9 +25,14 @@ public class ComprobarSeguridadStatsel extends HttpServlet {
 			HttpSession session = request.getSession();
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
 			if(admin != null){
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_statsel.jsp");
-				dispatcher.forward(request, response);
-				
+				if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+					request.getSession().invalidate();
+					response.sendRedirect("login.jsp");
+				}
+				else {
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_statsel.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 			else {
 				response.sendRedirect("login.jsp");

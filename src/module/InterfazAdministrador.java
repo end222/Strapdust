@@ -38,7 +38,25 @@ public class InterfazAdministrador {
 		return correcto;
 	}
 	
-	
+	public static boolean existeAdmin(String admin) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		String pdi = "";
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE PDI='" + admin + "'")) {
+				pdi = c.getString("PDI");
+			}
+			if (!pdi.equals("")) correcto = true; // Se ha encontrado el alumno en la base de datos
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
 	
 	public static boolean anyadirAdministrador(Administrador admin) {
 		JDBCTemplate mysql = null;
@@ -109,7 +127,9 @@ public class InterfazAdministrador {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
 			Connection connection = mysql.getConnection();
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
 			java.sql.PreparedStatement statement = connection.prepareStatement("DELETE FROM ADMINISTRADOR WHERE PDI=?");
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 1");
 			for (String admin : lista) {
 				procesados++;
 				for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ADMINISTRADOR WHERE PDI='" + admin  + "'")) {

@@ -102,7 +102,25 @@ public class InterfazAlumno {
 		}
 		return insertados;
 	}
-	
+	public static boolean existeAlumno(int alumnoNia) {
+		JDBCTemplate mysql = null;
+		boolean correcto = false;
+		int nia = -1;
+		Properties prop = new Properties();
+		try {
+			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
+			mysql = configureMySQL(prop);
+			for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + alumnoNia)) {
+				nia = c.getInteger("NIA");
+			}
+			if (nia != -1) correcto = true; // Se ha encontrado el alumno en la base de datos
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		} finally {
+			if (mysql != null) mysql.disconnect();
+		}
+		return correcto;
+	}
 	public static List<Integer> eliminarListaAlumnos(List<Integer> lista) {
 		JDBCTemplate mysql = null;
 		int procesados = 0;
@@ -113,7 +131,9 @@ public class InterfazAlumno {
 			prop.load(EjemploCargaDatos.class.getResourceAsStream("sistemas.properties"));
 			mysql = configureMySQL(prop);
 			Connection connection = mysql.getConnection();
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 0");
 			java.sql.PreparedStatement statement = connection.prepareStatement("DELETE FROM ALUMNO WHERE NIA=?");
+			mysql.executeSentence("SET FOREIGN_KEY_CHECKS = 1");
 			for (Integer al : lista) {
 				procesados++;
 				for(Cursor c: mysql.executeQueryAndGetCursor("SELECT * FROM ALUMNO WHERE NIA=" + al)) {

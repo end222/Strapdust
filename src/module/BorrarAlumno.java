@@ -83,9 +83,15 @@ public class BorrarAlumno extends HttpServlet{
 			request.setAttribute("errorMessage", "El sistema ha fallado");
 			HttpSession session = request.getSession();
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");
-			if(admin != null){
+			if(admin != null) {
+					if(!InterfazAdministrador.existeAdmin(admin.getPDI())) {
+						request.getSession().invalidate();
+						response.sendRedirect("login.jsp");
+					}
+					else {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/control/x_borrar_usuarios.jsp");
 						dispatcher.forward(request, response);
+					}
 				}
 			else {
 				response.sendRedirect("login.jsp");
