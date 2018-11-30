@@ -14,8 +14,7 @@ public class CerrarSesion extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
 			request.getSession().invalidate();
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/");
-			dispatcher.forward(request, response);
+			response.sendRedirect("index");
 		}
 		catch (Throwable Exception) {
 			System.out.println(Exception);
