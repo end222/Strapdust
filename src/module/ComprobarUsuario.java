@@ -21,13 +21,13 @@ public class ComprobarUsuario extends HttpServlet{
 				HttpSession session = request.getSession(true);
 				AlumnoBean al = InterfazAlumno.obtenerUnAlumno(nombreUsuario);
 				session.setAttribute("AlumnoBean",al);
-				response.sendRedirect("ComprobarSeguridad.do?direccion=a_alumno.jsp");
+				response.sendRedirect("ComprobarSeguridad.do?direccion=a_alumno");
 			}
 			else if(resultado == 3) {
 				HttpSession session = request.getSession(true);
 				AdministradorBean admin = InterfazAdministrador.obtenerUnAdmin(nombreUsuario);
 				session.setAttribute("AdministradorBean",admin);
-				response.sendRedirect("ComprobarSeguridad.do?direccion=x_administrador.jsp");
+				response.sendRedirect("ComprobarSeguridad.do?direccion=x_administrador");
 			}
 			else {
 				request.setAttribute("errorMessage", "El usuario o la contraseña no son correctos");

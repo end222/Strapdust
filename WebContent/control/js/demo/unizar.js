@@ -31,7 +31,7 @@ var ctx = document.getElementById("unizar");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["No pertenece a la Universidad de Zaragoza", "Trabaja en la Universidad de Zaragoza", "Estudia en la EINA", "No estudia en la EINA pero si en Unizar"],
+    labels: ["No pertenece a la Universidad de Zaragoza", "Trabaja en la Universidad de Zaragoza", "Estudia en la EINA", "Estudia en Unizar pero no en la EINA"],
     datasets: [{
       data: [resp[0], resp[1], resp[2], resp[3]],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],

@@ -35,7 +35,7 @@
   	<jsp:include page="/ObtenerStats4.do" />
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
@@ -79,16 +79,16 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
+        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
 			<a class="dropdown-item" href="forgot-password.html">Cambiar contraseña</a>
 			  
-            <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+            <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
-            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
           </div>
         </li>
@@ -120,7 +120,7 @@
                 <div class="card-body">
                   <canvas id="aciertos" width="100%" height="100"></canvas>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                
               </div>
             </div>
             <div class="col-lg-4">
@@ -131,25 +131,25 @@
                 <div class="card-body">
                   <canvas id="edad" width="100%" height="100"></canvas>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                
               </div>
             </div>
              <div class="col-lg-4">
               <div class="card mb-3">
                 <div class="card-header">
                   <i class="fas fa-chart-pie"></i>
-                  Pertenencencia a la Universdad de Zaragoza</div>
+                  ¿Pertenece a la Universidad de Zaragoza?</div>
                 <div class="card-body">
                   <canvas id="unizar" width="100%" height="100"></canvas>
                 </div>
-                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+               
               </div>
             </div>
           </div>
           
 
           <p class="small text-center text-muted my-5">
-            <em>Respuestas a las preguntas de opinión</em>
+            <em>Respuestas a la pregunta de opinión</em>
           </p>
  <div class="card mb-3">
             <div class="card-header">
@@ -173,7 +173,7 @@
                 </table>
               </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            
           </div>
 
         </div>

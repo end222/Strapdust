@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
@@ -80,15 +80,15 @@
 
        <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
+        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
 			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
-			  <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+			  <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
-            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
           </div>
         </li>
@@ -109,12 +109,12 @@
             <li class="breadcrumb-item active">Usuarios</li>
           </ol>
 			<div>
-			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario.jsp"><strong>Añadir nuevos alumnos</strong></a>
-			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTabla.do?direccion=x_borrar_usuarios.jsp"><strong>Eliminar alumnos</strong></a>
+			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario"><strong>Añadir nuevos alumnos</strong></a>
+			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTabla.do?direccion=x_borrar_usuarios"><strong>Eliminar alumnos</strong></a>
 				
 			
-			<a class="btn btn-info btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_admin.jsp">Añadir nuevos administradores</a>
-			<a class="btn btn-danger btn-block" href="ComprobarSeguridad.do?direccion=x_borrar_admin.jsp">Eliminar administradores</a>
+			<a class="btn btn-info btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_admin">Añadir nuevos administradores</a>
+			<a class="btn btn-danger btn-block" href="ComprobarSeguridad.do?direccion=x_borrar_admin">Eliminar administradores</a>
 			</div>
 			
           <!-- DataTables Example -->

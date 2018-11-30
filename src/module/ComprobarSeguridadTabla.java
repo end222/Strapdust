@@ -23,7 +23,7 @@ public class ComprobarSeguridadTabla extends HttpServlet {
 			request.setAttribute("LISTA_AL",lista);
 			
 			String direccionCorta = request.getParameter("direccion");
-			String direccion = "/WEB-INF/control/" + direccionCorta;
+			String direccion = "/WEB-INF/control/" + direccionCorta + ".jsp";
 			HttpSession session = request.getSession();
 			AlumnoBean alumno = (AlumnoBean) session.getAttribute("AlumnoBean");
 			AdministradorBean admin = (AdministradorBean) session.getAttribute("AdministradorBean");

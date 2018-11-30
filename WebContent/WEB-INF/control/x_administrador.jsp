@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="es">
 
 	<head>
@@ -32,7 +33,7 @@
 
 		<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-			<a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+			<a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
 			<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
@@ -76,16 +77,16 @@
 
 			<!-- Sidebar -->
 			<ul class="sidebar navbar-nav toggled">
-				<li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
+				<li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
 				<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
 					<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 						<h6 class="dropdown-header">Configuración:</h6>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
 
-						<a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+						<a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
-						<a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+						<a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
 					</div>
 				</li>
@@ -132,7 +133,7 @@
 									</div>
 									<div class="mr-5">${numAlumnos} Usuarios</div> 
 								</div>
-								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
+								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTabla.do?direccion=x_usuarios"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
 						</div>
 						<div class="col-xl-3 col-sm-6 mb-3">
 							<div class="card text-white bg-success o-hidden h-100">
@@ -142,7 +143,7 @@
 									</div>
 									<div class="mr-5">${numGrupos} Grupos</div>
 								</div>
-								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
+								<a class="card-footer text-white clearfix small z-1" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos"> <span class="float-left">Administrar</span> <span class="float-right"> <em class="fas fa-angle-right"></em> </span> </a></div>
 						</div>
 						<div class="col-xl-3 col-sm-6 mb-3">
 							<div class="card text-white bg-danger o-hidden h-100">

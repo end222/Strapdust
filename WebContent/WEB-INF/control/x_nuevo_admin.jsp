@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
@@ -77,15 +77,15 @@
 
        <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
+        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
 			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
-            <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+            <a class="dropdown-item active" href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
-            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+            <a class="dropdown-item" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
           </div>
         </li>
@@ -104,7 +104,7 @@
               <a href="#">Configuración</a>
             </li>
             <li class="breadcrumb-item">
-				<a href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+				<a href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 			  </li>
 			<li class="breadcrumb-item active">Añadir nuevos administradores</li>
           </ol>
@@ -117,7 +117,7 @@
 			<div class="alert alert-warning" role="alert">
 			  ATENCIÓN - Está a punto de añadir usuarios con privilegios de administrador
 			</div>
-	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario.jsp" role="alert">
+	<div> <a class="alert alert-secondary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_usuario" role="alert">
 	  Para añadir alumnos haga click aquí
 	</a></div>
 			  <br>

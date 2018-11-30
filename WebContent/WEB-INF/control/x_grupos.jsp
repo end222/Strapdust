@@ -34,7 +34,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" ><em class="fas fa-bars"></em></button>
 
@@ -78,15 +78,15 @@
 
        <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
+        <li class="nav-item dropdown"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=x_administrador"> <em class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span> </a> </li>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <em class="fas fa-fw fa-folder"></em> <span>Configuración</span> </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Configuración:</h6>
 			  		<div class="dropdown-divider"></div>
 			<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
-            <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+            <a class="dropdown-item" href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
-            <a class="dropdown-item active" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+            <a class="dropdown-item active" href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
           </div>
         </li>
@@ -106,8 +106,8 @@
             </li>
             <li class="breadcrumb-item active">Grupos</li>
           </ol>
-			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_grupo.jsp">Crear nuevo grupo</a>
-			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTablaGrupos.do?direccion=x_borrar_grupos.jsp">Eliminar grupos</a>
+			<a class="btn btn-primary btn-block" href="ComprobarSeguridad.do?direccion=x_nuevo_grupo">Crear nuevo grupo</a>
+			<a class="btn btn-secondary btn-block" href="ComprobarSeguridadTablaGrupos.do?direccion=x_borrar_grupos">Eliminar grupos</a>
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">

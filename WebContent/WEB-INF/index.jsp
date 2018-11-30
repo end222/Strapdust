@@ -8,7 +8,7 @@
 -->
 <html lang="es">
 	<head>
-		<title>erios</title>
+		<title>Erios Unizar</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="shortcut icon" href="favicon.ico" />
@@ -38,8 +38,8 @@
 						    	<a href="${Cartel.imagen}" class="image"><img src="${Cartel.imagen}" alt="" /></a>
 						    	<h2><a href="quiz.html?cartel=${Cartel.ID}" data-toggle="tooltip" title="¡Haz clic para ir al cuestionario!">${Cartel.titulo}</a></h2>
 						    	<p>${Cartel.noticia}</p>
-						    	<a class="btn btn-secondary" href="${Cartel.enlace}">
-						    		Haga click aquí para ir a la noticia original
+						    	<a class="btn btn-secondary" href="${Cartel.enlace}" target="_blank">
+						    		Enlace a la noticia original
 								</a>
 							</article>
 						</c:forEach>
@@ -50,8 +50,8 @@
 						<div class="inner split">
 							<div>
 								<section>
-									<h2>erios</h2>
-									<p>erios es una paǵina de cuestinarios sobre temas de actualidad referentes a la concienciación sobre el medio ambiente con la finalidad de ver cuán informada está la población en este aspecto.</p>
+									<h2>Erios</h2>
+									<p>Erios es una plataforma de concienciación sobre el medio ambiente que surge como proyecto universitario para la Universidad de Zaragoza.</p>
 								</section>
 								<section>
 									<h2>Síguenos en...</h2>
@@ -62,7 +62,7 @@
 									</ul>
 								</section>
 								<p class="copyright">
-									&copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+									Copyright &copy; Erios 2018. Design: <a href="http://html5up.net">HTML5 UP</a>.
 								</p>
 							</div>
 						</div>

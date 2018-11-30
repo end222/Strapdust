@@ -36,7 +36,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=/a_alumno.jsp">Alumno</a>
+      <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=/a_alumno">Alumno</a>
       
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
@@ -81,9 +81,9 @@
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav toggled">
-        <li class="nav-item  active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno.jsp"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+        <li class="nav-item  active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
         <li class="nav-item">
-          <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_upload.jsp">
+          <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_upload">
             <i class="fas fa-fw fa-image"></i>
             <span>Cartel</span></a>
         </li>

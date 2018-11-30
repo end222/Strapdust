@@ -25,7 +25,7 @@
 
 <body id="page-top" class="sidebar-toggled">
 <jsp:include page="/ObtenerDatosQuiz" />
-<nav class="navbar navbar-expand navbar-dark bg-dark static-top"> <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=/a_alumno.jsp">Alumno</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top"> <a class="navbar-brand mr-1" href="ComprobarSeguridad.do?direccion=a_alumno">Alumno</a>
   <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#"><em class="fas fa-bars"></em></button>
   
   <!-- Navbar -->
@@ -51,8 +51,8 @@
   
   <!-- Sidebar -->
   <ul class="sidebar navbar-nav toggled">
-    <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno.jsp"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
-    <li class="nav-item active"> <a class="nav-link" href="upload.html"> <i class="fas fa-fw fa-image"></i> <span>Cartel</span></a> </li>
+    <li class="nav-item"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_alumno"> <em class="fas fa-fw fa-address-card"></em> <span>Info</span> </a> </li>
+    <li class="nav-item active"> <a class="nav-link" href="ComprobarSeguridad.do?direccion=a_upload"> <i class="fas fa-fw fa-image"></i> <span>Cartel</span></a> </li>
   </ul>
   <div id="content-wrapper">
     <div class="container-fluid"> 
@@ -92,11 +92,12 @@
                         </input>
                       </div>
                       <h1>Cuestionario</h1>
-                      <div class="form-group">
-                        <h4>Pregunta 1</h4>
+                      <h4>Pregunta 1</h4>
+                      <div class="form-group"> <strong>Enunciado</strong>
+                        
                         <input class="form-control" name="enunciado1" placeholder="Enunciado" value="${Preg1.enunciado}" required>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group"> <strong>Respuestas</strong>
                         <input class="form-control" name="pregunta11" placeholder="Respuesta A" value="${Preg1.respuesta1}" required>
                       </div>
                       <div class="form-group">
@@ -115,15 +116,16 @@
                       <label class="checkbox-inline">
                         <input type="checkbox" name="respuesta13" ${correcta13}>
                         C </label>
-                      <div class="form-group"> <strong>¿Por qué es/son correcta(s)?</strong>
+                      <div class="form-group"> <strong>Explicación</strong>
                         <input class="form-control" name="explicacion1" value="${Preg1.explicacion}" required>
                         </input>
                       </div>
-                      <div class="form-group">
-                        <h4>Pregunta 2</h4>
+                      <h4>Pregunta 2</h4>
+                      <div class="form-group"> <strong>Enunciado</strong>
+                        
                         <input class="form-control" name="enunciado2" placeholder="Enunciado" value="${Preg2.enunciado}" required>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group"> <strong>Respuestas</strong>
                         <input class="form-control" name="pregunta21" placeholder="Respuesta A" value="${Preg2.respuesta1}" required>
                       </div>
                       <div class="form-group">
@@ -142,15 +144,16 @@
                       <label class="checkbox-inline">
                         <input type="checkbox" name="respuesta23" ${correcta23}>
                         C </label>
-                      <div class="form-group"> <strong>¿Por qué es/son correcta(s)?</strong>
+                      <div class="form-group"> <strong>Explicación</strong>
                         <input class="form-control" name="explicacion2" value="${Preg2.explicacion}" required>
                         </input>
                       </div>
-                      <div class="form-group">
-                        <h4>Pregunta 3</h4>
+                      <h4>Pregunta 3</h4>
+                      <div class="form-group"> <strong>Enunciado</strong>
+                        
                         <input class="form-control" name="enunciado3" placeholder="Enunciado" value="${Preg3.enunciado}" required>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group"> <strong>Respuestas</strong>
                         <input class="form-control" name="pregunta31" placeholder="Respuesta A" value="${Preg3.respuesta1}" required>
                       </div>
                       <div class="form-group">
@@ -168,7 +171,7 @@
                         <label class="checkbox-inline">
                           <input type="checkbox" name="respuesta33" ${correcta33}>
                           C </label>
-                        <div class="form-group"> <strong>¿Por qué es/son correcta(s)?</strong>
+                        <div class="form-group"> <strong>Explicación</strong>
                           <input class="form-control" name="explicacion3" value="${Preg3.explicacion}" required>
                           </input>
                         </div>

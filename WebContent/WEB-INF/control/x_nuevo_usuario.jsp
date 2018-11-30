@@ -38,7 +38,7 @@
 	<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
 		<a class="navbar-brand mr-1"
-			href="ComprobarSeguridad.do?direccion=x_administrador.jsp">Administración</a>
+			href="ComprobarSeguridad.do?direccion=x_administrador">Administración</a>
 
 		<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
 			id="sidebarToggle" >
@@ -90,7 +90,7 @@
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav toggled">
 			<li class="nav-item dropdown"><a class="nav-link"
-				href="ComprobarSeguridad.do?direccion=x_administrador.jsp"> <em
+				href="ComprobarSeguridad.do?direccion=x_administrador"> <em
 					class="fas fa-fw fa-tachometer-alt"></em> <span>Inicio</span>
 			</a></li>
 			<li class="nav-item dropdown"><a
@@ -103,10 +103,10 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" data-toggle="modal" href="#change">Cambiar contraseña</a>
 						<a class="dropdown-item active"
-						href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+						href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 
 					<a class="dropdown-item"
-						href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos.jsp">Grupos</a>
+						href="ComprobarSeguridadTablaGrupos.do?direccion=x_grupos">Grupos</a>
 
 				</div></li>
 				<li class="nav-item"> <a class="nav-link" href="index"> <em class="fas fa-fw fa-images"></em> <span>Carteles</span> </a> </li>
@@ -123,7 +123,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#">Configuración</a></li>
 					<li class="breadcrumb-item"><a
-						href="ComprobarSeguridadTabla.do?direccion=x_usuarios.jsp">Usuarios</a>
+						href="ComprobarSeguridadTabla.do?direccion=x_usuarios">Usuarios</a>
 					</li>
 					<li class="breadcrumb-item active">Añadir nuevos alumnos</li>
 				</ol>

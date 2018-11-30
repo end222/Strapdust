@@ -58,7 +58,7 @@
 
 				  <div class="w-full text-center p-t-27 p-b-239">
 						<span class="txt1">
-							*El usuario debe coincidir con su identificador NIA
+							*El usuario debe coincidir con el de su correo Unizar
 							<br>
 							<font size="3" color="red">${errorMessage}</font>
 							<font size="3" color="green">${success}</font>

@@ -38,6 +38,6 @@ public class Upload extends HttpServlet {
 		    if(file.exists()) file.delete();
 		    Files.copy(fileContent, file.toPath());
 	    }
-	    response.sendRedirect("ComprobarSeguridad.do?direccion=a_alumno.jsp");
+	    response.sendRedirect("ComprobarSeguridad.do?direccion=a_alumno");
 	}
 }
