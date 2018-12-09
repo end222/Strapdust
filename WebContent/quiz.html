@@ -41,6 +41,45 @@ function findGetParameter(parameterName) {
 	return result;
 }
 
+function gotoUrl(path, params, method) {
+    //Null check
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    //Fill the hidden form
+    if (typeof params === 'string') {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", 'data');
+        hiddenField.setAttribute("value", params);
+        form.appendChild(hiddenField);
+    }
+    else {
+        for (var key in params) {
+            if (params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                if(typeof params[key] === 'object'){
+                    hiddenField.setAttribute("value", JSON.stringify(params[key]));
+                }
+                else{
+                    hiddenField.setAttribute("value", params[key]);
+                }
+                form.appendChild(hiddenField);
+            }
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
 function shuffle(array) {
 	var currentIndex = array.length, temporaryValue, randomIndex;
 	// While there remain elements to shuffle...
@@ -245,7 +284,22 @@ jQuery(document).ready(function($){
 	 */
 	function endQuiz(){
 		$(document).ready(function(){
-			$("#continue").attr("href", "quizStats?cartel=" + cartel + "&a1=" + correcto[0] + "&a2=" + correcto[1] + "&a3=" + correcto[2]);
+			$("#continue").on('click', function(){
+				//var http = new XMLHttpRequest();
+				//var url = 'quizStats';
+				//var params = "cartel=" + cartel + "&a1=" + correcto[0] + "&a2=" + correcto[1] + "&a3=" + correcto[2];
+				//http.open('POST', url, true);
+	
+				//http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				//http.onreadystatechange = function() {//Call a function when the state changes.
+				    //if(http.readyState == 4 && http.status == 200) {
+				        //alert(http.responseText);
+				    //}
+				//}
+				//http.send(params);
+				gotoUrl("quizStats", {'cartel':cartel, 'a1':correcto[0], 'a2':correcto[1], 'a3':correcto[2]});
+			});
+			//$("#continue").attr("href", "quizStats?cartel=" + cartel + "&a1=" + correcto[0] + "&a2=" + correcto[1] + "&a3=" + correcto[2]);
 		});
 		$('#explanation').empty();
 		$('#question').empty();
@@ -383,7 +437,7 @@ img.question-image 										{ width:100%; height:auto; display:block; max-width
 		</div>	
 
 		<div class="col-sm-6 formControls rsform-block-submit">
-			<center><a class="btn btn-info btn-lg" id="continue" href="stats.html" role="button">Continuar</a></center>
+			<center><a class="btn btn-info btn-lg" id="continue" href="#" role="button">Continuar</a></center>
 		</div>	
 	</body>
 </html>

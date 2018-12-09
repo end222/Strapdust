@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class quizStats extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
 			int cartel = Integer.parseInt(request.getParameter("cartel"));
 			int acierto1 = Integer.parseInt(request.getParameter("a1"));
